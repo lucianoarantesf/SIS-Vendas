@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{43084891-50C2-4D77-BAD6-30D150AEF8B5}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SERVER\WindowsDWService.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="WindowsDWService">
+        <MSBuild Projects="SERVER\WindowsDWService.dproj"/>
+    </Target>
+    <Target Name="WindowsDWService:Clean">
+        <MSBuild Projects="SERVER\WindowsDWService.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WindowsDWService:Make">
+        <MSBuild Projects="SERVER\WindowsDWService.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="WindowsDWService"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="WindowsDWService:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="WindowsDWService:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
