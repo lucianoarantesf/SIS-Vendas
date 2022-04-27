@@ -1,0 +1,2090 @@
+object FormPrincipal: TFormPrincipal
+  Left = 0
+  Top = 0
+  BorderStyle = Single
+  Caption = 'Sis Vendas'
+  ClientHeight = 483
+  ClientWidth = 533
+  Fill.Kind = Solid
+  SystemStatusBar.BackgroundColor = claWhite
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object tabcontrol: TTabControl
+    Align = Client
+    Size.Width = 533.000000000000000000
+    Size.Height = 435.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 1
+    TabOrder = 2
+    TabPosition = None
+    Sizes = (
+      533s
+      435s
+      533s
+      435s
+      533s
+      435s
+      533s
+      435s
+      533s
+      435s)
+    object tabMenu: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+    end
+    object tabCadPessoa: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tabCadPessoa'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object TabControlCadPessoa: TTabControl
+        Align = Client
+        Size.Width = 533.000000000000000000
+        Size.Height = 435.000000000000000000
+        Size.PlatformDefault = False
+        TabHeight = 49.000000000000000000
+        TabIndex = 0
+        TabOrder = 0
+        TabPosition = PlatformDefault
+        Sizes = (
+          533s
+          386s
+          533s
+          386s)
+        object TabItemCadastroPessoa: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = True
+          Size.Width = 68.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'Cadastro'
+          ExplicitSize.cx = 68.000000000000000000
+          ExplicitSize.cy = 26.000000000000000000
+          object ListBoxCadPessoa: TListBox
+            Align = Client
+            Size.Width = 533.000000000000000000
+            Size.Height = 386.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'transparentlistboxstyle'
+            TabOrder = 0
+            DisableFocusEffect = True
+            DefaultItemStyles.ItemStyle = ''
+            DefaultItemStyles.GroupHeaderStyle = ''
+            DefaultItemStyles.GroupFooterStyle = ''
+            Viewport.Width = 517.000000000000000000
+            Viewport.Height = 386.000000000000000000
+            object ListBoxItemSalvarCadPessoa: TListBoxItem
+              Margins.Left = 2.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 2.000000000000000000
+              Position.Y = 2.000000000000000000
+              Size.Width = 513.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 6
+              object SkLabel1: TSkLabel
+                Align = Client
+                Size.Width = 463.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = []
+                TextSettings.Decorations.Color = claSeagreen
+                TextSettings.Font.Families = 'Verdana'
+                TextSettings.Font.Size = 28.000000000000000000
+                TextSettings.Font.Weight = Bold
+                TextSettings.FontColor = claSeagreen
+                TextSettings.HorzAlign = Center
+                Words = <
+                  item
+                    Text = 'Cadastro de Pessoa'
+                  end>
+              end
+              object btnSalvarCadPessoa: TImage
+                MultiResBitmap.Height = 64
+                MultiResBitmap.Width = 64
+                MultiResBitmap = <
+                  item
+                    Width = 64
+                    Height = 64
+                    PNG = {
+                      89504E470D0A1A0A0000000D4948445200000040000000400806000000AA6971
+                      DE000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                      039849444154785EED9B4D48146118C7FFB3EBB7CBAA857D296A209561BBD121
+                      41E8D04149573A247DA9655E0A42B128A84B425E52F25061170F6D1645687610
+                      B622A84E1DEC108A15185A98652A8565BAEB47EE34EFECB3EEB826ED6CD3BA3B
+                      33BFCBF331BABBCF6F5EDFDD1959E8681C8EA28FAB7B6261369C00C7950955AE
+                      F013899E03E10AFF196EBE16558F3AA8218BC5026EDAD284077408C35BA91319
+                      F0FC3C78AE12558E3BD409189F0076E6930C5D1137BC972025182882967D640E
+                      CFE0382338BE15765B397502C2B7025A8BBB84722755D895B4057519A558136D
+                      A64E60585F9DA3CCC3C4DE5B940587B9F328651E7A763452063C19EFC1F90FF7
+                      300F37750464AE04DF0AE0B19532910B19FB640F1F6A0A53AC68D8780846C918
+                      725782EF3739CE4499C8DAE824CAC21B26A1716319A284B917F04A682D3E429D
+                      6591A88B5C0A52B6A121EBF052093CEC7F93A00A018C6025A84600231809AA12
+                      C0902B417502187224A852008349B8947570E95B2493602F2AA58E7A053096FF
+                      9C60B84295BA0530BC1216C1219D32F50B603009CB21B916B0F19489483F73CB
+                      21BFA70E53F33354298BC9188717D68B54C9C3FF1A05950E7176C557409E299B
+                      32E5C9376FA24C391417509B5E04B3319E2AE5488E4AC0D9F412AA9443710159
+                      B1A968CF398DC2640B128525FBAFB0C7284CB1A02DE7D47FB940537C0F085742
+                      B607441ABA008A9A45174051B3E802286A165D0045CDA20BA0A859740114358B
+                      2E80A26609FA7EC0ACFB17EE7FEDC2C3F16EF4BB46E072CFD291D0106F884176
+                      FC3AD8566D47E9EA3CC418A2E8C89F51F47EC0D8DC042AFA9AD1F8A913BD531F
+                      433E3C833D277BEE86A14E54BCBB2EBEA660902D809DF9EAFE1BE8737DA1CECA
+                      D3E71C46F5805D7C6D72912D802DFB701ADE0B93D0F1ED255581237B0F281796
+                      FEEBA921AA8082C131343DEBC5FAA969EA848661531CCEECB6E069662A75004B
+                      62266E6F3E49D56214DB03DEBB4629F370F979E887676C989C4693F0DC5206A6
+                      47280B1CD9029C7E1B1E7B212B45DAA48B320FC1FC472AA8770135A10BA0A859
+                      740114358B2E80A266D10550D42CBA008A9AC52780E7272913199DFB4159E433
+                      32EB3F0BFF931289000E6F2913A91F7CA00A096CF8FA21FF6FD4716F2891DE0F
+                      28AE11CA6B54A91B1E3538E66866A96F057C77B7083ABAA9522F6CC6848416AA
+                      24026A1FCFC08D12554B60B3B1190FB42FDCD4F0FD097869DB1F03A7F3B870A4
+                      5CD81873E1F765AA8843DCDCF95EE15CDF15CFBC64781D1DE037D77E203D822F
+                      98DD0000000049454E44AE426082}
+                    FileName = 
+                      'C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\Image' +
+                      'ns\diskette.png'
+                  end>
+                Align = Right
+                Position.X = 463.000000000000000000
+                OnClick = btnSalvarCadPessoaClick
+              end
+            end
+            object ListBoxItemNome: TListBoxItem
+              Margins.Left = 2.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 2.000000000000000000
+              Position.Y = 59.000000000000000000
+              Size.Width = 513.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              ParentShowHint = False
+              object Label1: TLabel
+                Align = Client
+                StyledSettings = [Size]
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claSeagreen
+                Text = 'Nome: '
+                TabOrder = 38
+                object EdtNomeCadPessoa: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 4
+                  Margins.Left = 70.000000000000000000
+                  Margins.Top = 2.000000000000000000
+                  Margins.Right = 2.000000000000000000
+                  Margins.Bottom = 2.000000000000000000
+                  Size.Width = 441.000000000000000000
+                  Size.Height = 31.000000000000000000
+                  Size.PlatformDefault = False
+                end
+              end
+            end
+            object ListBoxItemCpf: TListBoxItem
+              Margins.Left = 2.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 2.000000000000000000
+              Position.Y = 101.000000000000000000
+              Size.Width = 513.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              ParentShowHint = False
+              object Label2: TLabel
+                Align = Client
+                StyledSettings = [Size]
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claSeagreen
+                Text = 'CPF:'
+                TabOrder = 38
+                object edtCpfCadPessoa: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 4
+                  Margins.Left = 50.000000000000000000
+                  Margins.Top = 2.000000000000000000
+                  Margins.Right = 2.000000000000000000
+                  Margins.Bottom = 2.000000000000000000
+                  Size.Width = 461.000000000000000000
+                  Size.Height = 31.000000000000000000
+                  Size.PlatformDefault = False
+                end
+              end
+            end
+            object ListBoxItemCep: TListBoxItem
+              Margins.Left = 2.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 2.000000000000000000
+              Position.Y = 143.000000000000000000
+              Size.Width = 513.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+              ParentShowHint = False
+              object Label3: TLabel
+                Align = Client
+                StyledSettings = [Size]
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claSeagreen
+                Text = 'CEP:'
+                TabOrder = 38
+                object EdtCepCadPessoa: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 4
+                  Margins.Left = 50.000000000000000000
+                  Margins.Top = 2.000000000000000000
+                  Margins.Right = 2.000000000000000000
+                  Margins.Bottom = 2.000000000000000000
+                  Size.Width = 461.000000000000000000
+                  Size.Height = 31.000000000000000000
+                  Size.PlatformDefault = False
+                end
+              end
+            end
+            object ListBoxItemEndereco: TListBoxItem
+              Margins.Left = 2.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 2.000000000000000000
+              Position.Y = 185.000000000000000000
+              Size.Width = 513.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              ParentShowHint = False
+              object Label12: TLabel
+                Align = Client
+                StyledSettings = [Size]
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claSeagreen
+                Text = 'Endere'#231'o:'
+                TabOrder = 38
+                object EditEnderecoCadPessoa: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 4
+                  Margins.Left = 110.000000000000000000
+                  Margins.Top = 2.000000000000000000
+                  Margins.Right = 2.000000000000000000
+                  Margins.Bottom = 2.000000000000000000
+                  Size.Width = 401.000000000000000000
+                  Size.Height = 31.000000000000000000
+                  Size.PlatformDefault = False
+                end
+              end
+            end
+            object ListBoxItemTipCadastro: TListBoxItem
+              Margins.Left = 2.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 2.000000000000000000
+              Position.Y = 227.000000000000000000
+              Size.Width = 513.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 4
+              ParentShowHint = False
+              object Label4: TLabel
+                Align = Client
+                StyledSettings = [Size]
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claSeagreen
+                Text = 'Tipo Cadastro:'
+                TabOrder = 40
+              end
+              object cbTipCadastro: TComboBox
+                Align = Client
+                Items.Strings = (
+                  'Funcionario'
+                  'Cliente')
+                ItemIndex = 1
+                Margins.Left = 150.000000000000000000
+                Margins.Top = 2.000000000000000000
+                Margins.Right = 2.000000000000000000
+                Margins.Bottom = 2.000000000000000000
+                Size.Width = 361.000000000000000000
+                Size.Height = 31.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 38
+                OnClosePopup = cbTipCadastroClosePopup
+              end
+            end
+            object ListBoxItemAcessos: TListBoxItem
+              Margins.Left = 2.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 2.000000000000000000
+              Position.Y = 269.000000000000000000
+              Size.Width = 513.000000000000000000
+              Size.Height = 247.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 5
+              ParentShowHint = False
+              object Label5: TLabel
+                Align = Top
+                StyledSettings = [Size]
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claSeagreen
+                Text = 'Usu'#225'rio:'
+                TabOrder = 36
+                object edtUserCadPessoa: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 4
+                  Margins.Left = 90.000000000000000000
+                  Margins.Top = 2.000000000000000000
+                  Margins.Right = 2.000000000000000000
+                  Margins.Bottom = 2.000000000000000000
+                  Size.Width = 421.000000000000000000
+                  Size.Height = 31.000000000000000000
+                  Size.PlatformDefault = False
+                end
+              end
+              object Label6: TLabel
+                Align = Top
+                StyledSettings = [Size]
+                Position.Y = 35.000000000000000000
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claSeagreen
+                Text = 'Senha:'
+                TabOrder = 43
+                object edtSenhaCadPessoa: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 4
+                  Margins.Left = 90.000000000000000000
+                  Margins.Top = 2.000000000000000000
+                  Margins.Right = 2.000000000000000000
+                  Margins.Bottom = 2.000000000000000000
+                  Size.Width = 421.000000000000000000
+                  Size.Height = 31.000000000000000000
+                  Size.PlatformDefault = False
+                end
+              end
+              object Label7: TLabel
+                Align = Top
+                StyledSettings = [Size]
+                Position.Y = 70.000000000000000000
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claSeagreen
+                Text = 'Permiss'#245'es:'
+                TabOrder = 42
+              end
+              object Label8: TLabel
+                Align = Top
+                StyledSettings = [Size]
+                Position.Y = 210.000000000000000000
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.FontColor = claSeagreen
+                Text = 'Vendas'
+                TabOrder = 41
+                object swVendas: TSwitch
+                  Align = Right
+                  IsChecked = False
+                  Margins.Left = 5.000000000000000000
+                  Margins.Top = 5.000000000000000000
+                  Margins.Right = 5.000000000000000000
+                  Margins.Bottom = 5.000000000000000000
+                  Position.X = 464.000000000000000000
+                  Position.Y = 5.000000000000000000
+                  Size.Width = 44.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'switchstyle'
+                  TabOrder = 43
+                end
+              end
+              object Label9: TLabel
+                Align = Top
+                StyledSettings = [Size]
+                Position.Y = 175.000000000000000000
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.FontColor = claSeagreen
+                Text = 'Cadastro de Produtos'
+                TabOrder = 37
+                object swCadProduto: TSwitch
+                  Align = Right
+                  IsChecked = False
+                  Margins.Left = 5.000000000000000000
+                  Margins.Top = 5.000000000000000000
+                  Margins.Right = 5.000000000000000000
+                  Margins.Bottom = 5.000000000000000000
+                  Position.X = 464.000000000000000000
+                  Position.Y = 5.000000000000000000
+                  Size.Width = 44.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'switchstyle'
+                  TabOrder = 43
+                end
+              end
+              object Label10: TLabel
+                Align = Top
+                StyledSettings = [Size]
+                Position.Y = 140.000000000000000000
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.FontColor = claSeagreen
+                Text = 'Cadastro de Fornecedor'
+                TabOrder = 40
+                object swCadFornecedor: TSwitch
+                  Align = Right
+                  IsChecked = False
+                  Margins.Left = 5.000000000000000000
+                  Margins.Top = 5.000000000000000000
+                  Margins.Right = 5.000000000000000000
+                  Margins.Bottom = 5.000000000000000000
+                  Position.X = 464.000000000000000000
+                  Position.Y = 5.000000000000000000
+                  Size.Width = 44.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'switchstyle'
+                  TabOrder = 43
+                end
+              end
+              object Label11: TLabel
+                Align = Top
+                StyledSettings = [Size]
+                Position.Y = 105.000000000000000000
+                Size.Width = 513.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Verdana'
+                TextSettings.FontColor = claSeagreen
+                Text = 'Cadastro de Pessoa'
+                TabOrder = 38
+                object swCadPessoa: TSwitch
+                  Align = Right
+                  IsChecked = False
+                  Margins.Left = 5.000000000000000000
+                  Margins.Top = 5.000000000000000000
+                  Margins.Right = 5.000000000000000000
+                  Margins.Bottom = 5.000000000000000000
+                  Position.X = 464.000000000000000000
+                  Position.Y = 5.000000000000000000
+                  Size.Width = 44.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'switchstyle'
+                  TabOrder = 4
+                end
+              end
+            end
+          end
+        end
+        object TabItemConsultaPessoa: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = False
+          Size.Width = 67.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'Consulta'
+          ExplicitSize.cx = 67.000000000000000000
+          ExplicitSize.cy = 26.000000000000000000
+          object lvCadPessoa: TListView
+            ItemAppearanceClassName = 'TDynamicAppearance'
+            ItemEditAppearanceClassName = 'TDynamicAppearance'
+            HeaderAppearanceClassName = 'TCustomizeItemObjects'
+            FooterAppearanceClassName = 'TCustomizeItemObjects'
+            Align = Client
+            Size.Width = 533.000000000000000000
+            Size.Height = 386.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            ItemAppearance.ItemHeight = 100
+            ItemAppearance.ItemEditHeight = 60
+            ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextAlign = Leading
+                Appearance.Width = 55.000000000000000000
+                Appearance.Height = 20.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text2'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.TextAlign = Leading
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 56.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text3'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextAlign = Leading
+                Appearance.Width = 55.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 168.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text4'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.TextAlign = Leading
+                Appearance.Width = 287.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 224.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text5'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextAlign = Leading
+                Appearance.Width = 55.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.Y = 24.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text6'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.TextAlign = Leading
+                Appearance.Width = 191.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 56.000000000000000000
+                Appearance.PlaceOffset.Y = 24.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text7'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextAlign = Leading
+                Appearance.Width = 55.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 248.000000000000000000
+                Appearance.PlaceOffset.Y = 24.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text8'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.TextAlign = Leading
+                Appearance.Width = 207.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 304.000000000000000000
+                Appearance.PlaceOffset.Y = 24.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text9'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextAlign = Leading
+                Appearance.Width = 55.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.Y = 48.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text10'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.TextAlign = Leading
+                Appearance.Width = 191.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 56.000000000000000000
+                Appearance.PlaceOffset.Y = 48.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text11'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextAlign = Leading
+                Appearance.Width = 55.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 248.000000000000000000
+                Appearance.PlaceOffset.Y = 48.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text12'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.TextAlign = Leading
+                Appearance.Width = 207.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 304.000000000000000000
+                Appearance.PlaceOffset.Y = 48.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text13'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.Font.StyleExt = {00070000000000000004000000}
+                Appearance.TextAlign = Leading
+                Appearance.Width = 55.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.Y = 72.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text14'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Font.Family = 'Verdana'
+                Appearance.Font.Size = 14.000000000000000000
+                Appearance.TextAlign = Leading
+                Appearance.Width = 455.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 56.000000000000000000
+                Appearance.PlaceOffset.Y = 72.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text15'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.Visible = False
+              end
+              item
+                AppearanceObjectName = 'Text16'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.Visible = False
+              end>
+            ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+              item
+                AppearanceObjectName = 'Text1'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text2'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 96.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text3'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 8.000000000000000000
+                Appearance.PlaceOffset.Y = 32.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text4'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 112.000000000000000000
+                Appearance.PlaceOffset.Y = 32.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text5'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 224.000000000000000000
+                Appearance.PlaceOffset.Y = 32.000000000000000000
+              end
+              item
+                AppearanceObjectName = 'Text6'
+                AppearanceClassName = 'TTextObjectAppearance'
+                Appearance.Width = 100.000000000000000000
+                Appearance.Height = 20.000000000000000000
+                Appearance.PlaceOffset.X = 328.000000000000000000
+                Appearance.PlaceOffset.Y = 32.000000000000000000
+              end>
+            OnItemClick = lvCadPessoaItemClick
+            DeleteButtonText = 'Excluir'
+            SearchVisible = True
+          end
+        end
+      end
+    end
+    object tabCadFornecedor: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tabCadFornecedor'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object ListBox1: TListBox
+        Align = Top
+        Size.Width = 533.000000000000000000
+        Size.Height = 225.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'transparentlistboxstyle'
+        TabOrder = 1
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 533.000000000000000000
+        Viewport.Height = 225.000000000000000000
+        object ListBoxItem1: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 5
+          object Label14: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 529.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.Size = 28.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            TextSettings.HorzAlign = Center
+            Text = 'Cadastro de Fornecedor'
+            TabOrder = 38
+          end
+        end
+        object ListBoxItem2: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 59.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          ParentShowHint = False
+          object Label15: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Nome: '
+            TabOrder = 38
+            object edtNomeFornecedor: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 4
+              Margins.Left = 70.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 2.000000000000000000
+              Size.Width = 457.000000000000000000
+              Size.Height = 31.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
+        object ListBoxItem3: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 101.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          ParentShowHint = False
+          object Label16: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Raz'#227'o Social:'
+            TabOrder = 38
+            object edtRazaoSocialFornecedor: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 4
+              Margins.Left = 140.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 2.000000000000000000
+              Size.Width = 387.000000000000000000
+              Size.Height = 31.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
+        object ListBoxItem4: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 143.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          ParentShowHint = False
+          object Label17: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'CNPJ:'
+            TabOrder = 38
+            object edtCNPJFornecedor: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 4
+              Margins.Left = 70.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 2.000000000000000000
+              Size.Width = 457.000000000000000000
+              Size.Height = 31.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
+        object ListBoxItem5: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 185.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          ParentShowHint = False
+          object Label18: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Situa'#231#227'o:'
+            TabOrder = 38
+            object rbFornecedorAtivo: TRadioButton
+              Align = Left
+              StyledSettings = [Style, FontColor]
+              Margins.Left = 100.000000000000000000
+              Position.X = 100.000000000000000000
+              Size.Width = 120.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 4
+              Text = 'Ativo'
+              TextSettings.Font.Family = 'Verdana'
+              TextSettings.Font.Size = 14.000000000000000000
+            end
+            object rbFornecedorDestativado: TRadioButton
+              Align = Left
+              StyledSettings = [Style, FontColor]
+              Position.X = 220.000000000000000000
+              Size.Width = 120.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 5
+              Text = 'Desativado'
+              TextSettings.Font.Family = 'Verdana'
+              TextSettings.Font.Size = 14.000000000000000000
+            end
+          end
+        end
+      end
+      object lvCadFornecedor: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        EditMode = True
+        Align = Client
+        Size.Width = 533.000000000000000000
+        Size.Height = 210.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        DeleteButtonText = 'Excluir'
+      end
+    end
+    object tabCadProduto: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tabCadProduto'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object ListBox2: TListBox
+        Align = Top
+        Size.Width = 533.000000000000000000
+        Size.Height = 273.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'transparentlistboxstyle'
+        TabOrder = 1
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 533.000000000000000000
+        Viewport.Height = 273.000000000000000000
+        object ListBoxItem6: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 5
+          object Label19: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 529.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.Size = 28.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            TextSettings.HorzAlign = Center
+            Text = 'Cadastro de Produtos'
+            TabOrder = 38
+          end
+        end
+        object ListBoxItem7: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 59.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          ParentShowHint = False
+          object Label20: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Descri'#231#227'o: '
+            TabOrder = 38
+            object edtDescricaoProduto: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 4
+              Margins.Left = 110.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 2.000000000000000000
+              Size.Width = 417.000000000000000000
+              Size.Height = 31.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
+        object ListBoxItem8: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 101.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          ParentShowHint = False
+          object Label21: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Pre'#231'o:'
+            TabOrder = 38
+            object edtPrecoProduto: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 4
+              Margins.Left = 70.000000000000000000
+              Margins.Top = 2.000000000000000000
+              Margins.Right = 2.000000000000000000
+              Margins.Bottom = 2.000000000000000000
+              Size.Width = 457.000000000000000000
+              Size.Height = 31.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
+        object ListBoxItem11: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 143.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          ParentShowHint = False
+          object Label24: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Estoque:'
+            TabOrder = 38
+          end
+          object edtEstoqueProduto: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 4
+            Margins.Left = 100.000000000000000000
+            Margins.Top = 2.000000000000000000
+            Margins.Right = 2.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Size.Width = 427.000000000000000000
+            Size.Height = 31.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+        object ListBoxItem9: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 185.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          ParentShowHint = False
+          object Label22: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Fornecedor:'
+            TabOrder = 38
+            object cbFornecedorProduto: TComboBox
+              Align = Client
+              Margins.Left = 130.000000000000000000
+              Size.Width = 399.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 4
+            end
+          end
+        end
+        object ListBoxItem10: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 227.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          ParentShowHint = False
+          object Label23: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Situa'#231#227'o:'
+            TabOrder = 38
+            object rbAtivoProduto: TRadioButton
+              Align = Left
+              StyledSettings = [Style, FontColor]
+              Margins.Left = 100.000000000000000000
+              Position.X = 100.000000000000000000
+              Size.Width = 120.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 4
+              Text = 'Ativo'
+              TextSettings.Font.Family = 'Verdana'
+              TextSettings.Font.Size = 14.000000000000000000
+            end
+            object rbDesativadoProduto: TRadioButton
+              Align = Left
+              StyledSettings = [Style, FontColor]
+              Margins.Left = 100.000000000000000000
+              Position.X = 320.000000000000000000
+              Size.Width = 120.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 5
+              Text = 'Desativado'
+              TextSettings.Font.Family = 'Verdana'
+              TextSettings.Font.Size = 14.000000000000000000
+            end
+          end
+        end
+      end
+      object lvCadProduto: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        EditMode = True
+        Align = Client
+        Size.Width = 533.000000000000000000
+        Size.Height = 162.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        DeleteButtonText = 'Excluir'
+      end
+    end
+    object tabVenda: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tabVenda'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object ListBox3: TListBox
+        Align = Top
+        Size.Width = 533.000000000000000000
+        Size.Height = 233.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'transparentlistboxstyle'
+        TabOrder = 1
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 533.000000000000000000
+        Viewport.Height = 233.000000000000000000
+        object ListBoxItem12: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          object Label25: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 529.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.Size = 28.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            TextSettings.HorzAlign = Center
+            Text = 'Vendas'
+            TabOrder = 38
+          end
+        end
+        object ListBoxItem13: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 59.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          ParentShowHint = False
+          object Label26: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 359.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Data/Hora:'
+            TabOrder = 38
+          end
+          object edtDataVenda: TDateEdit
+            Date = 44678.000000000000000000
+            TodayDefault = True
+            Align = Client
+            Margins.Left = 130.000000000000000000
+            Size.Width = 229.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 40
+            ParentShowHint = False
+            ShowHint = False
+          end
+          object edtHoraVenda: TTimeEdit
+            Time = 0.507159988425925900
+            Align = Right
+            Margins.Left = 20.000000000000000000
+            Margins.Right = 50.000000000000000000
+            Position.X = 379.000000000000000000
+            Size.Width = 100.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 41
+          end
+        end
+        object ListBoxItem14: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 101.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          ParentShowHint = False
+          object Label27: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Cliente:'
+            TabOrder = 38
+          end
+          object cbClienteVenda: TComboBox
+            Align = Client
+            Margins.Left = 130.000000000000000000
+            Size.Width = 399.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 4
+          end
+        end
+        object ListBoxItem15: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 143.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          ParentShowHint = False
+          object Label28: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Produto:'
+            TabOrder = 37
+          end
+          object cbProdutoVenda: TComboBox
+            Align = Client
+            Margins.Left = 130.000000000000000000
+            Size.Width = 399.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 4
+          end
+        end
+        object ListBoxItem16: TListBoxItem
+          Margins.Left = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 185.000000000000000000
+          Size.Width = 529.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          ParentShowHint = False
+          object Label29: TLabel
+            Align = Client
+            StyledSettings = [Size]
+            Size.Width = 529.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claSeagreen
+            Text = 'Quantidade:'
+            TabOrder = 38
+          end
+          object edtQuantidadeVenda: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 4
+            Margins.Left = 130.000000000000000000
+            Margins.Top = 2.000000000000000000
+            Margins.Right = 2.000000000000000000
+            Margins.Bottom = 2.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 31.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+      end
+      object lvVendas: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        EditMode = True
+        Align = Client
+        Size.Width = 533.000000000000000000
+        Size.Height = 202.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        DeleteButtonText = 'Excluir'
+      end
+    end
+  end
+  object ToolBar: TToolBar
+    Size.Width = 533.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object Rectangle1: TRectangle
+      Align = Client
+      Fill.Color = claWhite
+      Size.Width = 533.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object lblTitulo: TLabel
+        Align = Client
+        StyledSettings = []
+        Size.Width = 437.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claSeagreen
+        TextSettings.HorzAlign = Center
+        Text = 'lblTitulo'
+        TabOrder = 0
+      end
+      object btnMenu: TImage
+        MultiResBitmap.Height = 64
+        MultiResBitmap.Width = 64
+        MultiResBitmap = <
+          item
+            Width = 64
+            Height = 64
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000040000000400806000000AA6971
+              DE000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              067D49444154785EED9B6B6C145514C7CFB9B37D51BAD4A6054B4290288D022D
+              6D0151883C62002D24060384F8A2A21FFC602290680C8941136394043E486250
+              C3FB11099090486C8D16A2C106839096B60421525E8A5D6AE92E59A07477AEFF
+              993D6C59B7BB1D3E393BD95FD29D73CEBDDBCC397BEF3967666799EE67EBA269
+              A4F42A62730E912A234D5DC4FA08696303D57F7B5A66A566D7737E327D55443A
+              5F2CEEC4E4AB547FF87762D20301D85EB78E88D7C19818140BADA3C4EA3D5A71
+              78A35892D951F70202B69B98878BC5DD683A4205058B0C5BD9BEF06D9CF8FA41
+              9DB76056785D408BC75FA043E7935782C6FB5A2B7EC6BC87C4E27E98C65124D2
+              CDF4F5FC12CAC9E984C12F43E9B84E7C771CBDF64358F418DBEA1E26C5D744CB
+              1C346D5194E75BECD0798B3232739F177980A8CF5A2199076BA5900690B41E04
+              FD80F3DD0D0240B13CE018CE11C113584BF77C4C740A9F13C11328F2E94338F6
+              C7D421D0E66D8A460E8BE60914BDF2DD25D4F94DA2A787F9537AA3F1BA68033C
+              1A0C203AB744CB242EC6B2775FD7FB783D68CB29D13BE9C2B48F454964EE4F11
+              E49275F8D362713F9A2E11F76F1E687CAC666657DD4AB4896B204D102BECBA15
+              E5623DAD68D82B96D46C5F38057D660D1696BBCB22739054A4815E6D0C0DDEF9
+              ED9C3792D82825E50BD0CB87BBC59A254B962C9E23210936373717140CF72F67
+              D2B331520653406BDD54989FBFBFA2A2A22F36CB5BC403D0D2D1319DA3E63E94
+              88B1628A83805C34955A5E3D71E2AF624AE25447C778236A6E46233083995D7D
+              47486BBAC2AC374FAEACFCC40E406BEB995ACDD1669C789E3D631030764B47F9
+              99C993279C1253022DA7DB5B9869B2A81901FAB625AABDBD3D9739FA4D3AE72D
+              B015866936B7E298D4E4E07F94649AF316ACF95915D17A81661E2FB6B4584EB6
+              B4B7CF12354E9F61B8FB26680A34EB7C853D30437447E0E39F29A227803F5C2C
+              B223B4E611227A02858CF897C88E40F6FC53444FA04CD68D220F091220B68DFE
+              5E544FA06A2B2B4FC0336741603A5055557556B438465F5F1009322A6AC680FC
+              D76397B4BB3E6325B6C21FB635155A9FF131BF255A02D5D5D561344043DC5071
+              1728FB11328DBD039D604BCB4856BECFD11C2CC560BCD663D59B08D50E1D89AC
+              A9A9A9E91573129D9D9DF9A150F81DCCADC13E49EA155C85E6204E710B9ABAE3
+              F100DCA3ADAD6D0C76FA2C38518A30050CA2A393264DFA5B86B364C992C55324
+              25C17FA6D2987EA2D948E3A5A8ED011DA5A3234F51E67DF5ED907800AE3D4D23
+              553F6D8265298C713BEA3B9A45DA9D9B4FAB8A8FD10D3127D1399BF287DDA255
+              10AB31DFD565103E8570D83AEA376AB61D0DD452392AFF2FDA7A6A220578D3D9
+              3C8366161FA71E3125707D1AEDC79C25A2BA1E347E1136697AEC9332D0E8A471
+              DE02917ABC3F4A5F899AC0B52A2A344D5A2C6A4680EDED43BBF692EA9E424F42
+              9F1733A7C7247AB17B3A3D216A1C9F4123B0821EF03983FF1F04A104578394FC
+              C84B0AACDC60466981A89E4061E9978BEC0CA6D1227902858C1D14D9199A525E
+              106522D63DC163223B831F70BECB51A59A1A71C1EBE83921948DD6B213C901C8
+              C9A33B2266169AEE283E693F1FF43A5642DAAFBE301E3615D5E388629088DD1B
+              686A11356340DFD264F701A34EA209229A8FE6E0AA3DF21FE0F405CC9E3BEA44
+              1A270D5A86D71F91536EC70CEE05BE5E81AF6BD1091E846F035C7E8A0AF2A2B4
+              4C699A838FB90C9E7721424DA5613AC067E8AE4CCB92254B16CF909004EF71F3
+              E6CD5138946AAD037EBF3FF9C9500F110F80F5BD3F1C5F696ABD8699E3577CB0
+              B761D27A04620FECA820A9E9EDED9DAA94AA460571F50D115C0686CCFEFE8692
+              9292A01D003899130C85F6C1C194D7F4F07CD788A2A27ACC496A842C82C1E0BB
+              98F319C6075D556E03277919A73ACD3ED9DE50682384D5F6481AE0E087C57EFF
+              47A2C641007D086008FFB0404C1901FC59C73D3D3D6395619CC7C90FF9430838
+              7ADB50EA91A2A2A280986CC2E1F0E848349A715F9B6BE66DF0DD58ECC4790BEB
+              13364D73A1A89EC04A568FC544C754C8D113282C8388C84EF1D403938AB51EFA
+              27B1F76132B78BE8091412DB21EC6D47B7C5303770271C6E10350EEC839646D7
+              8384A68A8B8B7BD0FCAC15537AD02495979727FE6A1414161676210819D731A2
+              F4B7D91D1B6AFB17A8891FC0091C9281398A975508D61E3125801564FD0AFB4D
+              1C6F8AC9FD68DD84EEF64BBB11BAC78D1B376AD9305663702ED4320C7669A59A
+              0CA20DA8FD43EEFDEEEE6E7F6E6E6E15F284AB9F1C65D3BC02E7CF31B3FE175B
+              8B286FF03BAE540000000049454E44AE426082}
+            FileName = 
+              'C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\Image' +
+              'ns\options.png'
+          end>
+        Align = Left
+        Margins.Left = 2.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Right = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Position.X = 2.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 44.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object btnLogOut: TImage
+        MultiResBitmap.Height = 64
+        MultiResBitmap.Width = 64
+        MultiResBitmap = <
+          item
+            Width = 64
+            Height = 64
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000040000000400806000000AA6971
+              DE000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              0E2049444154785EDD9B097853551680CF7D49DA24DD17A8207B8B65495B6819
+              501C409961A41451111905593A0AAE9FA39F32303828E83082A3A0080E6ED8AA
+              200A2E582808E8470BB6AC03A5B429A550B6425B6AF7A66D92F7EE9C9B5C5EF3
+              BA409226CAF87F5FD37BCE4B5EDE3DB9F7DC73CEBB8F80B749BD370C88751448
+              9201080C004AA281D050A0100202D183042A005A0784D4E0F16A90E84900827F
+              340FDF9309C9E9A5FC4C5EC13B06589718839D7B184F3F0E8814072008FC88EB
+              50C8C7ABDC0D92F83924EFD8CFB51EC37306786FA21E74623276F651BCE8215C
+              EB592814E2E8F91824CD5A48DE52CDB59DA2F306F870520068AC4FE1D07E0ECF
+              D6956BBD4D0D5A630DA88595307D6B05D7B945E70C903AF1CF00E20AFCD5BB73
+              4D1B0442A5185D9FC2C4D0216506FF1E424F4D78805EE513AA51A90371BEEB04
+              41504940EB45B0D69B2C96AA1273658DD15422EEAA3A1E7AA0EEF4401124353F
+              555B0854A2E15F843309EFC3922512D7BA847B06F8747C0F1055EBF0D3E3B846
+              8140414C0C8D3F3AA7FB58736FDFF0810290107EC825244A1B4AADD527522F67
+              D2AF2B0F0E354B565F7EA815F42048C22C48DE5AC0154EE3BA01521213F1639F
+              A0D70EE71A19BD5A5BB7B0C7A42349A1F1ACD3115CED1128AE10FB6AF28FBD5C
+              FC95E167B1BECD7703A5F5F8FA04CC4EFFCCAE700ED70C909AB4081DD112FC94
+              E2733E82BA7971AFFBB393C2E287E2F120AEF60A8410D34FD505879E2FFE2CC1
+              2499FDB9BA050AEF825EFF0C4CDD2472CD3571CE002FBF2C40DFC3EFE0BB9FE4
+              1A99B1C1314797F77B30C407D47DB8EA1741A252E9F20B6967375664DDCA552D
+              50F81ADDCA7448CE68E29A0EB9BE01EC9DFF14DF398D6B6CA840B0FE3BF2A18C
+              B1813177E2AFE2FE3ADF490A1B4BB36716AE896B14CD7AAEB243E1473442D2F5
+              8C707D03A424ADC6773DC5251B216ABFCA6F07BD703158AD8FE5AA5F9526C95C
+              34397FA50E57909BB98A43BF019DDF03D79A0ED7FEE55227BCD8BAF35D7D822E
+              6D372CA8B8513ACFD00A3E516983E76962F43D8BB88A43EE0353C36A2EB44BC7
+              232065E29F8088DBD146B291BA69422E6F1D3C4F520BAA5696BE31602BC574E3
+              AA2B79A692FE5C6587D06498999EC22505ED1B60C3DD1160918E61EB26BB02C0
+              4FE55BFB43CCA2529DA0B985AB6E4844492CBBD7F8A6F97CF3CF3DB98AF98306
+              5089C361C68E7CAE91697F0A58A48FF055EE3C0B6CD2072D3873A3779EA11254
+              119B073C67D6093E0D5CC57E663F10C9A7F0E50398792A696B80D40993F135C9
+              2ED859D17FE6DE608DDE3B098E17F0556922BF18F84C0E17ED10211E4CA627B8
+              24A39C022CA3F3958C186DF4E21A181D38306755E4AC187796BA3273F5A18D57
+              B2CD05A692C026C9D2714CDF0E1A41234669BBD44DED3212309C1EE1CEF7AFB8
+              909E957A25632417193578E268989656C6E55606484D7A165F57DA050035112C
+              5971AF9EF315D4515CE5145492EA169DDF5C905679E4775CD5296E0D883AF16E
+              D49CAE2A17B34D9142F9A8E32F691BC4E640AE62BC01B3B6CDE36D8729F0F678
+              5F7416CF73C9C6C29EF764B9DC7964C1B98D859EEA3C637F5D9121F9D4BB9578
+              EA66AE720A66B07722938F72D10EA58FC3FA89722ED1628060D5741C0F3DB804
+              CC894C0E1B6EE0A2D39458AA0EECA8CA49E0A2C7C8A93F37E070DD19972B42F1
+              7E7D6EBD4913D4525623C41FACF4692E394C8194A49F5092E7CB8B3DEECD98DA
+              F5B6315C749AD7CE6FD9EF189FE30518DFE837A30983152D573985855ACC4BCF
+              7D23EEACC98DE72A181E1099F741FFB983B9E834076B8B32E6147DD0D2170AE7
+              A078583F5643B01BE093BBA340920AD100369950420F0FFB67899AAAE511E12C
+              0FE6AF2A323695C8D3666FEC2B2702D5BE2E8F24065BD3E38F2D94D36A966E67
+              C72E09E0A2D3B0BAC2C89C97A05132FB71152AE14E48DEB6C73E05A838ED6AE7
+              19A382A28FBBD37986899A7D78D3865650393A209750AB548ABCBFC9D2A44C78
+              9C4420C4EFA12E235960D702A1B6E48E1B4059D979BCFBB85ADEFCCDF070C428
+              E51424C4D667C1B6F6E3F462C25506EABABBE4F9FF1F0855F9197C89AA918B8C
+              3EF051523F01B474245A431EB691DA88B30211BA71F137030652BEA3820619B9
+              684745C60838FC155E755CB0E1226FBA851A0445EE8D015C9B0830A7FE42E688
+              9C7F98EECAFD576985A5EEBF5CED75C687C4B49ADA9241406710CD251B717EBD
+              9DAAA575C4A4F0840BBC0991BE11C56A207252C520041A1F2D5A3BA249B4E84B
+              2D35374DC85B36E88AB5F6083FEC55A275DD94556542A29913546478FD74113A
+              DE748B595D478F5877CBE319CBFA3EB467D3A067FD5AC7F09244895A509BB908
+              CD92559B94BB6C50E52F3012C27D82C37893436F615340B1D404AAF5C1BCE916
+              6CAE25F8F71D931832E40E1511DAC4EE785C9B1AF5580E8B35B80A9AA9A84BCC
+              5F3EA0CA5CAF5CAA3C8C4EE5A3BC1EEC3B4E010C0D1DC039EC52C4D61A960B9C
+              6FACD89F5963CCE8E80F87BE181BD0EB24FF880D3625D008FDABADA6E35CE571
+              B0B3ADCAE8248060085C8621906C9963439755E0AFD4F6C683936CA93CB2E7A5
+              B35FDEC145976195278C1E9B582283FE428C3D325F2E62B0C2CCD184E56D8A1A
+              AE30FCE8C24636E2B8E8900C79884DE5D91DDE27740696BA5EB6549EE1A2D7C1
+              510175BC6DC34245136FBAC57DE1C32EF3A65BE8059FFA6EEAA0BE5CF42838B2
+              AD8EBF3EFA002B4E8109C7F0481C57C1FEB8574FA2B3502C8DAE802E402A6E2A
+              CFCE6DBC684197AF2CB838B0BE22FBE693A696A489C122B5ED868505611AFFA1
+              4CF6F4146055E32147E6B738794AAB08A44ED88D5FF507AE82EF0D7F3F78934F
+              B02234F634A79B4BB3A6E4AFB8155744790AFA0AEAA66D86F9795DD481722DC1
+              D3063049E6C2DB8E2D7258F6E92976018576C1CE99C632C778D9659895BF2CDF
+              9FB1FAD2F7FBD81D1BAE96C111627ED8B826CEB1F3ECE66A9A615EAE63E7BD41
+              85B9FA67DEB443C94901F362C53DF59C86739DF2B22BCFA7E72FBDF8CD980F4A
+              7FFCFDA4FC3702D8BCE3876C0882603553AB9C7B6840306F19F4424E843AD863
+              25B48E38D978B955498DA20140C8E3928D5DD527DCAA035C656F4381BC0A9499
+              6B22AC9255E1147104E8DFEF3F379BFDEAA16ABF9FB71AE61FEBEE13E2D52977
+              951D55B9AD6A13429E0066C8C6AB9243D3D34D657D242AB9EDC94551522CAD22
+              F698376530521C7D68C852E1C7984521DEF63757C1CB68DE5B933F908B7604B2
+              4780C7B6B265EF805D6327BFE1529BB9EB0534383D14C6F2261562DD09E51228
+              15C3CCB462FB0510B2CBF69FF35ED96EB7CB58372AEB4B7F52EE13E07DB61B80
+              8A1B30289087EADEEA8258918A725AEB0AFE2A1F85A3699244B7CB6B5651546C
+              81D36AB46E0569AC28BAB122ABD5AD3D6183EDD5D69EBDE334468459B6368289
+              1AD97CE5A05BE1688CBEB762A979BAE823354B751B44B3D195BF6A6B43CEDFCE
+              7E5EC24F63C3A0BBF93C6FBAC4A1DAD38715156180B330736B266B38DC179898
+              0C84AEE31268551AD3FED8571A719AB6CAA1AFCD254BD581C4DC6523B8E851D6
+              F57F2C3321A0DF682E3A053ABFA6BBF25EAB612B125731E562989DBE84355B9C
+              905EB71E8FC8C39EA5A79BAE1C3CC145A7E9A60E1E7E7768C2212E7A0C768325
+              DEBF6FDB0D51D7E150DDE9038ACEDB3666FBC8BB465A829E4DF922DCD35F44E7
+              90C835905D5778F3AC88D1C56AA20AE5AAEB829E9DDC113830A8D4527D0C030F
+              8FEC24B93D283A776DD4DC2E02212E39670968D9D482B77B6282D7520AA3F036
+              CC4EFB8E4B0E5380F1C5141D3435B25D14F296B7DB03A38FAF894C36B8B364B1
+              5ADFA6F2FD8DB90DE783DCB93D3E40DBBD764AF870A1A7366CB83BDFFFC6C5B4
+              AC4FCBF7B5DC1EC7E40744291A1ED971856B5A1980913AE11E547FCB251B6F46
+              4DDFF3C7C058B78B1CBF064653C9BE070B56FD9E8B76283C09B3B7FD874B36DA
+              5A7556FA16B4541A976CCC3BB57E94B7EB759EA459B2162517AEB5A5D432140E
+              835EFF3E9764DA1F563EAA39F801391CC6AC5E95647CBD1F4B27B9EA8685DD50
+              BDDFB852AB58F6D826294267B6B75FB07D03B02D2494CC60456CAEB195AA26E7
+              AD08B04AA2626DBE9160A9F88CC235B5179A2B5A2574F4711CD9CABB429C8E1D
+              4BF2D61FF08C0BB964E3B2A5AA5B62DE3201AD7BC38D04914AE5338CAB2BDAEC
+              1104BAFA5A3BC8AFED5967A72FC7D75576C14EB9A5B6DBF8DCD7BAB0488DAB7E
+              759AA8E5D4C4BCD7ADB9A60BAD6FEA7E053A3FB6EFA943AE5FFC889BB613422E
+              45624BDE1A8B5FA8FBA434333C4A1FB1A7AF6FD7DE6CEDE7877E71D866E94927
+              5EBFA54A342963154A77438D34051EF9CEC235ED727D0364645034C2160829C1
+              9098C8B93BCE376167D5F1BE18ECE48C0D1E6C5211C1ADA742DC85D52C965EF8
+              366FF1F9CDB75941D270B51D0A9BB0F30FC05F775C7753956BBF5C4AD24220D2
+              AB387314538795B516F5999235292C6108A1D0A95B6B4ED09059633C3CBF78C3
+              305C951C139CABAC8233C39E73F61922D7872EDB440D943D3FD0E6BE1FABE92F
+              E831E9C8C4D0F8016CCB2A577B040C6BABF6D61A73169FDD1C53696D682741B3
+              3D7C3917666EDBC8154EE1DEDCFD705277D0881F624BCE1B1C61E5EBF161438F
+              CE89B8B3B90F7B684A703E9770846DB82CB156E7A59466C096CAC31D3F3445A5
+              6CECC96C98B5DDE5D5A973CECBBEAFF82D3C4DCBCEEC56B0C7E60C7E7D4EDD15
+              145716EBDF0B7AF88404F8ABB4616A22F81320B6DBE7E84F1A44D15A572F996D
+              8FCDE5D75F9276D51C0F3B5C777AC0351F9BA3B402D7B10530239D3DC1D6A6F6
+              E80C9DF7DE9F8CF3431FF4040E3FB6CB54B119C26BB0A406C83BE87CDE82E9DB
+              B0ED3E9D37C0553E1EA305E29F8C677C0425EFDCE0A060C4BF14508B6B61C60E
+              8FEC64F39C011C49B97B3010711AAE95CC610EC5D1E1DECD165B9D92B2FB163B
+              411236C25FB67ABCD0E21D0338B23E29042C300A5B6CB7E800BE27291C877110
+              AEA6FED84501DBF5782555F8BF1A2F8939B202FC9F87AB6B26CCDC558EB29700
+              F81FE1769D2874E2DB800000000049454E44AE426082}
+            FileName = 
+              'C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\Image' +
+              'ns\log-out.png'
+          end>
+        Align = Right
+        Margins.Left = 2.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Right = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Position.X = 487.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 44.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = btnLogOutClick
+      end
+    end
+  end
+  object RecLogin: TRectangle
+    Align = Contents
+    Fill.Color = claSeagreen
+    Size.Width = 533.000000000000000000
+    Size.Height = 483.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Visible = False
+    object Layout1: TLayout
+      Align = Center
+      Size.Width = 251.000000000000000000
+      Size.Height = 176.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object EdtUsuario: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 0
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.HorzAlign = Center
+        Position.Y = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 251.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Usu'#225'rio'
+        StyledSettings = [Style, FontColor]
+      end
+      object EdtSenha: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 1
+        Password = True
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.HorzAlign = Center
+        Position.Y = 52.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 251.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Senha'
+        StyledSettings = [Style, FontColor]
+      end
+      object lblEsqueciSenha: TLabel
+        Align = Top
+        StyledSettings = []
+        Margins.Top = 15.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.Y = 146.000000000000000000
+        Size.Width = 251.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        TextSettings.HorzAlign = Center
+        Text = 'Esqueci a minha senha.'
+        TabOrder = 2
+      end
+      object btnLogin: TButton
+        Align = Top
+        StyledSettings = [Style]
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.Y = 99.000000000000000000
+        Size.Width = 251.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'buttonstyle'
+        TabOrder = 3
+        Text = 'Entrar'
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 14.000000000000000000
+        OnClick = btnLoginClick
+      end
+    end
+  end
+  object MultiView: TMultiView
+    MasterButton = btnMenu
+    Mode = Drawer
+    NavigationPaneOptions.CollapsedWidth = 185.000000000000000000
+    Cursor = crHandPoint
+    DragMode = dmAutomatic
+    Size.Width = 250.000000000000000000
+    Size.Height = 435.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 0
+    object ListBox: TListBox
+      Align = Client
+      Margins.Left = 2.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Size.Width = 246.000000000000000000
+      Size.Height = 431.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      Viewport.Width = 242.000000000000000000
+      Viewport.Height = 379.000000000000000000
+      object btnCadastroPessoa: TListBoxItem
+        Tag = 1
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claSeagreen
+        TextSettings.HorzAlign = Center
+        TextSettings.WordWrap = True
+        StyledSettings = []
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 232.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Cadastro de Pessoa'
+        OnClick = btnCadastroPessoaClick
+      end
+      object btnCadastroFornecedor: TListBoxItem
+        Tag = 2
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claSeagreen
+        TextSettings.HorzAlign = Center
+        TextSettings.WordWrap = True
+        StyledSettings = []
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 55.000000000000000000
+        Size.Width = 232.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Cadastro Fornecedor'
+        OnClick = btnCadastroFornecedorClick
+      end
+      object btnCadastroProduto: TListBoxItem
+        Tag = 3
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claSeagreen
+        TextSettings.HorzAlign = Center
+        TextSettings.WordWrap = True
+        StyledSettings = []
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 105.000000000000000000
+        Size.Width = 232.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Cadastro Produto'
+        OnClick = btnCadastroProdutoClick
+      end
+      object btnVendas: TListBoxItem
+        Tag = 4
+        TextSettings.Font.Family = 'Verdana'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claSeagreen
+        TextSettings.HorzAlign = Center
+        TextSettings.WordWrap = True
+        StyledSettings = []
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 155.000000000000000000
+        Size.Width = 232.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Vendas'
+        OnClick = btnVendasClick
+      end
+      object ListBoxHeader: TListBoxHeader
+        Size.Width = 242.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnClick = ListBoxHeaderClick
+        object lblUsuario: TLabel
+          Align = Client
+          StyledSettings = []
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 15.000000000000000000
+          Size.Width = 232.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Verdana'
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claGreen
+          TextSettings.HorzAlign = Center
+          Text = 'Usu'#225'rio'
+          TabOrder = 1
+        end
+      end
+    end
+  end
+  object ActionList1: TActionList
+    Left = 64
+    Top = 8
+    object ChangeTab: TChangeTabAction
+      Category = 'Tab'
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = DM.qryPessoa
+    ScopeMappings = <>
+    Left = 256
+    Top = 224
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      Control = lvCadPessoa
+      FillExpressions = <
+        item
+          SourceMemberName = 'codtxt'
+          ControlMemberName = 'Text1'
+        end
+        item
+          SourceMemberName = 'cod_pessoa'
+          ControlMemberName = 'Text2'
+        end
+        item
+          SourceMemberName = 'nomtxt'
+          ControlMemberName = 'Text3'
+        end
+        item
+          SourceMemberName = 'NAME'
+          ControlMemberName = 'Text4'
+        end
+        item
+          SourceMemberName = 'cpftxt'
+          ControlMemberName = 'Text5'
+        end
+        item
+          SourceMemberName = 'CPF'
+          ControlMemberName = 'Text6'
+        end
+        item
+          SourceMemberName = 'ceptxt'
+          ControlMemberName = 'Text7'
+        end
+        item
+          SourceMemberName = 'CEP'
+          ControlMemberName = 'Text8'
+        end
+        item
+          SourceMemberName = 'endtxt'
+          ControlMemberName = 'Text9'
+        end
+        item
+          SourceMemberName = 'ENDERECO'
+          ControlMemberName = 'Text10'
+        end
+        item
+          SourceMemberName = 'tiptxt'
+          ControlMemberName = 'Text11'
+        end
+        item
+          SourceMemberName = 'TIPO'
+          ControlMemberName = 'Text12'
+        end
+        item
+          SourceMemberName = 'usutxt'
+          ControlMemberName = 'Text13'
+        end
+        item
+          SourceMemberName = 'usuario'
+          ControlMemberName = 'Text14'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+end

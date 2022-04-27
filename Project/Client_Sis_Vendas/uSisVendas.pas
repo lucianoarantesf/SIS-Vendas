@@ -11,7 +11,7 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
   System.Actions, FMX.ActnList, FMX.DateTimeCtrls, System.Rtti,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, Skia.FMX;
 
 type
   TFormPrincipal = class(TForm)
@@ -74,8 +74,7 @@ type
     TabItemConsultaPessoa: TTabItem;
     lvCadPessoa: TListView;
     ListBoxItemSalvarCadPessoa: TListBoxItem;
-    btnSalvar: TImage;
-    Label13: TLabel;
+    btnLogOut: TImage;
     ActionList1: TActionList;
     ChangeTab: TChangeTabAction;
     ListBox1: TListBox;
@@ -135,15 +134,20 @@ type
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
+    SkLabel1: TSkLabel;
+    btnSalvarCadPessoa: TImage;
     procedure cbTipCadastroClosePopup(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure btnSalvarClick(Sender: TObject);
+    procedure btnLogOutClick(Sender: TObject);
     procedure btnCadastroPessoaClick(Sender: TObject);
     procedure btnCadastroFornecedorClick(Sender: TObject);
     procedure btnCadastroProdutoClick(Sender: TObject);
     procedure btnVendasClick(Sender: TObject);
     procedure ListBoxHeaderClick(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
+    procedure lvCadPessoaItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure btnSalvarCadPessoaClick(Sender: TObject);
   private
     { Private declarations }
     procedure VerificaLogin;
@@ -165,7 +169,6 @@ procedure TFormPrincipal.btnCadastroFornecedorClick(Sender: TObject);
 begin
  ChangeTab.Tab := tabCadFornecedor;
  ChangeTab.ExecuteTarget(Self);
- btnSalvar.Visible := True;
  MultiView.HideMaster;
 end;
 
@@ -175,7 +178,6 @@ begin
  DM.qryPessoa.Open;
  ChangeTab.Tab := tabCadPessoa;
  ChangeTab.ExecuteTarget(Self);
- btnSalvar.Visible := True;
  MultiView.HideMaster;
 end;
 
@@ -183,7 +185,6 @@ procedure TFormPrincipal.btnCadastroProdutoClick(Sender: TObject);
 begin
  ChangeTab.Tab := tabCadProduto;
  ChangeTab.ExecuteTarget(Self);
- btnSalvar.Visible := True;
  MultiView.HideMaster;
 end;
 
@@ -202,10 +203,8 @@ begin
   end;
 end;
 
-procedure TFormPrincipal.btnSalvarClick(Sender: TObject);
+procedure TFormPrincipal.btnSalvarCadPessoaClick(Sender: TObject);
 begin
-  if tabCadPessoa.IsSelected then
-  begin
 
        if cbTipCadastro.ItemIndex  = -1 then
        ShowMessage('Informe o tipo de pessoa.');
@@ -276,27 +275,21 @@ begin
 
 
    LimpaCampos;
- end;
-  if tabCadFornecedor.IsSelected then
- begin
+end;
 
- end;
-  if tabCadProduto.IsSelected then
- begin
-
- end;
-  if tabVenda.IsSelected then
- begin
-
- end;
-
+procedure TFormPrincipal.btnLogOutClick(Sender: TObject);
+begin
+LimpaCampos;
+TabControl.ActiveTab := tabMenu;
+RecLogin.Visible := True;
+EdtUsuario.Text := '';
+EdtSenha.Text := '';
 end;
 
 procedure TFormPrincipal.btnVendasClick(Sender: TObject);
 begin
  ChangeTab.Tab := tabVenda;
  ChangeTab.ExecuteTarget(Self);
- btnSalvar.Visible := True;
  MultiView.HideMaster;
 end;
 
@@ -313,7 +306,6 @@ begin
 RecLogin.Visible := True;
 lblTitulo.Text := 'Sis Vendas - ' + FormatDateTime('DD/MM/YYYY',Now);
 ListBoxItemAcessos.Enabled := False;
-btnSalvar.Visible := False;
 TabControl.ActiveTab :=  tabMenu;
 end;
 
@@ -343,9 +335,28 @@ procedure TFormPrincipal.ListBoxHeaderClick(Sender: TObject);
 begin
  ChangeTab.Tab := tabMenu;
  ChangeTab.ExecuteTarget(Self);
- btnSalvar.Visible := False;
  MultiView.HideMaster;
 end;
+
+procedure TFormPrincipal.lvCadPessoaItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+  if DM.qryPessoa.FieldByName('TIPO').AsString = 'Cliente' then
+  begin
+
+    EdtNomeCadPessoa.Text := DM.qryPessoa.FieldByName('NAME').AsString;
+    edtCpfCadPessoa.Text := DM.qryPessoa.FieldByName('CPF').AsString;
+    EdtCepCadPessoa.Text := DM.qryPessoa.FieldByName('CEP').AsString;
+    EditEnderecoCadPessoa.Text := DM.qryPessoa.FieldByName('ENDERECO').AsString;
+    cbTipCadastro.ItemIndex := 1;
+    cbTipCadastro.Enabled := False;
+
+    TabControlCadPessoa.ActiveTab := TabItemCadastroPessoa;
+  end
+  else
+  ShowMessage('Não é possivel modificar cadastro de Funcionario.');
+end;
+
 
 procedure TFormPrincipal.VerificaLogin;
 begin
