@@ -1,17 +1,17 @@
 ﻿[qryProduto]
-Coordinates=86,10,77,159
+Coordinates=86,10,69,51
 
 [qryProduto_Fornecedor]
-Coordinates=172,179,132,87
+Coordinates=172,179,132,51
 
 [qryPessoa]
-Coordinates=10,10,66,159
+Coordinates=10,10,66,303
 
 [DataBase]
 Coordinates=345,107,61,33
 
 [qryUsuario]
-Coordinates=476,10,68,123
+Coordinates=476,10,68,51
 
 [DWClientEvents]
 Coordinates=345,159,93,33
@@ -20,17 +20,17 @@ Coordinates=345,159,93,33
 Coordinates=345,211,102,33
 
 [qryProdutoVenda]
-Coordinates=173,10,100,141
+Coordinates=173,10,100,51
 
 [qryDetalVenda]
-Coordinates=380,10,86,141
+Coordinates=380,10,86,51
 
 [qryFornecedor]
 Coordinates=283,10,87,141
 
 [qryVenda]
-Coordinates=10,179,78,123
+Coordinates=10,179,61,51
 
 [qryCliente]
-Coordinates=98,179,64,123
+Coordinates=98,179,64,51
 

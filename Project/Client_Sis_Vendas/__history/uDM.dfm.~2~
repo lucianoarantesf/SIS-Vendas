@@ -3,11 +3,10 @@ object DM: TDM
   Height = 293
   Width = 381
   object DataBase: TRESTDWDataBase
-    Active = True
+    Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '192.168.100.124'
     AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True
     AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
@@ -710,30 +709,15 @@ object DM: TDM
     Top = 6
   end
   object qryFornecedor: TRESTDWClientSQL
-    Active = True
+    Active = False
     Filtered = False
     FieldDefs = <
-      item
-        Name = 'codtxt'
-        DataType = ftString
-        Size = 8190
-      end
       item
         Name = 'cod_fornecedor'
         DataType = ftInteger
       end
       item
-        Name = 'nometxt'
-        DataType = ftString
-        Size = 8190
-      end
-      item
         Name = 'NOME_FANTA'
-        DataType = ftString
-        Size = 8190
-      end
-      item
-        Name = 'cnpjtxt'
         DataType = ftString
         Size = 8190
       end
@@ -743,17 +727,7 @@ object DM: TDM
         Size = 8190
       end
       item
-        Name = 'razaotxt'
-        DataType = ftString
-        Size = 8190
-      end
-      item
         Name = 'RAZAO_SOCIAL'
-        DataType = ftString
-        Size = 8190
-      end
-      item
-        Name = 'statustxt'
         DataType = ftString
         Size = 8190
       end

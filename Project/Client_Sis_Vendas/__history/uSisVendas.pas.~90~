@@ -250,12 +250,16 @@ begin
     begin
       dm.qryPessoa.Close;
       dm.qryPessoa.Open;
-      SuccessAnimation.Visible := True;
     end
-    else ErrorAnimation.Visible := True;
+    else
+    begin
+     ShowMessage('Não foi possivel concluir o cadastro de Pessoa.');
+    end;
+    SuccessAnimation.Visible := True;
 
 
    LimpaCampos;
+   TabControlCadPessoa.ActiveTab := TabItemConsultaPessoa;
 end;
 
 procedure TFormPrincipal.btnExcluirCadPessoaClick(Sender: TObject);
@@ -284,13 +288,16 @@ begin
     begin
       dm.qryPessoa.Close;
       dm.qryPessoa.Open;
-      SuccessAnimation.Visible := True;
     end
-    else ErrorAnimation.Visible := True;
-
+    else
+    begin
+     ShowMessage('Não foi possivel concluir o cadastro de Pessoa.');
+    end;
+    SuccessAnimation.Visible := True;
 
 
    LimpaCampos;
+   TabControlCadPessoa.ActiveTab := TabItemConsultaPessoa;
 end;
 
 procedure TFormPrincipal.btnLoginClick(Sender: TObject);
@@ -377,10 +384,11 @@ begin
      DM.qryPessoa.Close;
      DM.qryPessoa.Open;
      SuccessAnimation.Visible := True;
-     LimpaCampos;
    end
    else ErrorAnimation.Visible := False;
 
+
+   LimpaCampos;
 end;
 
 procedure TFormPrincipal.btnLogOutClick(Sender: TObject);
@@ -575,7 +583,7 @@ begin
      begin
       RecLogin.Visible := False;
       lblUsuario.Text := EdtUsuario.Text;
-      lblTitulo.Text  := 'SIS Venda - '+ FormatDateTime('DD/MM/YYYY', NOW);
+      lblTitulo.Text  := 'SIS Venda - ' + UpperCase(DM.qryUsuario.FieldByName('USUARIO').AsString) + ' - ' + FormatDateTime('DD/MM/YYYY', NOW);
 
       if DM.qryUsuario.FieldByName('PERCADPESSOA').AsBoolean
       then   btnCadastroPessoa.Visible := True

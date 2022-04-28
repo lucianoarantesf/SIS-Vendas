@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{10C4F1BC-4B2E-486E-82BB-7B3A3B189824}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Project\Client_Sis_Vendas\SisVendas.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SisVendas">
+        <MSBuild Projects="Project\Client_Sis_Vendas\SisVendas.dproj"/>
+    </Target>
+    <Target Name="SisVendas:Clean">
+        <MSBuild Projects="Project\Client_Sis_Vendas\SisVendas.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SisVendas:Make">
+        <MSBuild Projects="Project\Client_Sis_Vendas\SisVendas.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SisVendas"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SisVendas:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SisVendas:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2022/04/28 18:48:52.677,C:\TrabalhosFaculdade\SIS Vendas\Sis_VendasClient.groupproj=C:\Users\Avecom\OneDrive\Documentos\Embarcadero\Studio\Projects\ProjectGroup1.groupproj</Transaction>
+    <Transaction>2022/04/28 18:49:09.938,C:\TrabalhosFaculdade\SIS Vendas\Sis_Vendas_Client.groupproj=C:\TrabalhosFaculdade\SIS Vendas\Sis_VendasClient.groupproj</Transaction>
+  </Transactions>
+  <Default.Personality>
+    <Projects ActiveProject="C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\SisVendas.dproj"/>
+  </Default.Personality>
+</BorlandProject>

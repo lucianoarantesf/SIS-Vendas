@@ -7,7 +7,7 @@ object DM: TDM
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '192.168.100.124'
+    MyIP = '192.168.100.130'
     AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True
     AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
@@ -696,7 +696,6 @@ object DM: TDM
       #9#9#9#9#9#9'ELSE '#39'CLIENTE N'#195'O POSSUI USU'#193'RIO'#39
       #9#9#9#9#9#9'END AS USUARIO'
       'FROM "PESSOA" P'
-      'WHERE "FLG_EXCLUIDO"  = False'
       ''
       'ORDER BY P.cod_pessoa')
     CacheUpdateRecords = True
@@ -710,30 +709,15 @@ object DM: TDM
     Top = 6
   end
   object qryFornecedor: TRESTDWClientSQL
-    Active = True
+    Active = False
     Filtered = False
     FieldDefs = <
-      item
-        Name = 'codtxt'
-        DataType = ftString
-        Size = 8190
-      end
       item
         Name = 'cod_fornecedor'
         DataType = ftInteger
       end
       item
-        Name = 'nometxt'
-        DataType = ftString
-        Size = 8190
-      end
-      item
         Name = 'NOME_FANTA'
-        DataType = ftString
-        Size = 8190
-      end
-      item
-        Name = 'cnpjtxt'
         DataType = ftString
         Size = 8190
       end
@@ -743,17 +727,7 @@ object DM: TDM
         Size = 8190
       end
       item
-        Name = 'razaotxt'
-        DataType = ftString
-        Size = 8190
-      end
-      item
         Name = 'RAZAO_SOCIAL'
-        DataType = ftString
-        Size = 8190
-      end
-      item
-        Name = 'statustxt'
         DataType = ftString
         Size = 8190
       end
@@ -780,15 +754,9 @@ object DM: TDM
     Params = <>
     DataBase = DataBase
     SQL.Strings = (
-      'SELECT '#39'COD:'#39'::"varchar"  AS CODTXT,cod_fornecedor,'
-      #39'NOME FANTASIA:'#39'::"varchar"  AS NOMETXT,"NOME_FANTA",'
-      #39'CNPJ:'#39'::"varchar"  AS CNPJTXT,"CNPJ",'
-      #39'RAZ'#195'O SOCIAL:'#39'::"varchar"  AS RAZAOTXT,"RAZAO_SOCIAL",'
-      #39'STATUS:'#39'::"varchar"  AS STATUSTXT,"STATUS" '
-      'FROM "FORNECEDOR"'
-      'WHERE "FLG_EXCLUIDO"  = False'
-      ''
-      'ORDER BY cod_fornecedor')
+      
+        'SELECT cod_fornecedor,"NOME_FANTA","CNPJ","RAZAO_SOCIAL","STATUS' +
+        '" FROM "FORNECEDOR"')
     CacheUpdateRecords = True
     AutoCommitData = False
     AutoRefreshAfterCommit = False

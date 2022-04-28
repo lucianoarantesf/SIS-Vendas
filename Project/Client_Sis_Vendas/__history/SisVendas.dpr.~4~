@@ -11,7 +11,7 @@ uses
 {$R *.res}
 
 begin
-  GlobalUseSkia := True;
+GlobalUseSkia := True;
   Application.Initialize;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFormPrincipal, FormPrincipal);

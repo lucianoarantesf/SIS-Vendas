@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<ActiveMobileDevice>
-		<NoProfile iOSSimulator="iPhone5"/>
+		<NoProfile iOSSimulator="iPhone5" Android="f604f72e0521"/>
 	</ActiveMobileDevice>
+	<Transactions>
+    <Transaction>2022/04/27 14:34:39.000.709,C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\uFormat.pas=</Transaction>
+  </Transactions>
 </BorlandProject>
