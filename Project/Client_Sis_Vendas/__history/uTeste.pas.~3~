@@ -1,0 +1,19 @@
+﻿unit uTeste;
+
+interface
+uses TestFramework, uSincronismo;
+
+type
+  TNotasTestes = class(TTestCase)
+  private
+    FNotas: TNotas;
+  protected
+    procedure SetUp; override;
+    procedure TearDown; override;
+  published
+    procedure TestMedia;
+  end;
+
+implementation
+
+end.

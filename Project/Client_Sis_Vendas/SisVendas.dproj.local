@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<ActiveMobileDevice>
-		<NoProfile iOSSimulator="iPhone5" Android="f604f72e0521"/>
+		<NoProfile iOSSimulator="iPhone5" Android="f604f72e0521" Android64="f604f72e0521"/>
 	</ActiveMobileDevice>
 	<Transactions>
     <Transaction>2022/04/27 14:34:39.000.709,C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\uFormat.pas=</Transaction>
+    <Transaction>2022/05/04 19:52:34.707,=C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\Unit1.pas</Transaction>
+    <Transaction>2022/05/04 19:53:11.038,C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\uTeste.pas=C:\TrabalhosFaculdade\SIS Vendas\Project\Client_Sis_Vendas\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

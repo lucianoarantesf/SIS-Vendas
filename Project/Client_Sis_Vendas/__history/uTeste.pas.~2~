@@ -1,0 +1,18 @@
+﻿unit uTeste;
+
+uses TestFramework, Model;
+
+type
+  TNotasTestes = class(TTestCase)
+  private
+    FNotas: TNotas;
+  protected
+    procedure SetUp; override;
+    procedure TearDown; override;
+  published
+    procedure TestMedia;
+  end;
+
+implementation
+
+end.
