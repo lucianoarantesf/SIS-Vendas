@@ -37,6 +37,7 @@ begin
   RESTServicePooler.SSLPrivateKeyFile     := '';
   RESTServicePooler.SSLPrivateKeyPassword := '';
   RESTServicePooler.SSLCertFile           := '';
+  RESTServicePooler.MultiCORE             := True;
   RESTServicePooler.Active                := True;
 
 

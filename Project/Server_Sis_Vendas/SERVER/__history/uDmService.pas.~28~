@@ -23,14 +23,18 @@ USES
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FMX.Graphics, FMX.Surfaces,
   Soap.EncdDecd, FireDAC.DApt, FireDAC.Stan.StorageJSON,
   FireDAC.Stan.StorageBin, FMX.Canvas.D2D, uRESTDWBase,
-  FireDAC.Phys.PGDef, FireDAC.Phys.PG, FireDAC.VCLUI.Wait;
+  FireDAC.Phys.PGDef, FireDAC.Phys.PG;
 
 TYPE
   TServerMethodDM = CLASS(TServerMethodDataModule)
     RESTDWPoolerDB1: TRESTDWPoolerDB;
     Server_FDConnection: TFDConnection;
     RESTDWDriverFD1: TRESTDWDriverFD;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     DWServerEvents: TDWServerEvents;
+    FDStanStorageBinLink1: TFDStanStorageBinLink;
+    FDStanStorageJSONLink1: TFDStanStorageJSONLink;
+    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     qryInsere: TFDCommand;
     qryVerificaCodigo_Pessoa: TFDQuery;
     qryUpdate: TFDCommand;
@@ -44,10 +48,6 @@ TYPE
     IntegerField1: TIntegerField;
     qryVerificaCodVenda: TFDQuery;
     qryVerificaCodVendacod_venda: TIntegerField;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
-    FDStanStorageJSONLink1: TFDStanStorageJSONLink;
-    FDStanStorageBinLink1: TFDStanStorageBinLink;
-    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     procedure ServerMethodDataModuleUserBasicAuth(Welcomemsg, AccessTag,
       Username, Password: string; var Params: TDWParams; var ErrorCode: Integer;
       var ErrorMessage: string; var Accept: Boolean);
@@ -242,15 +242,15 @@ begin
 
 
     qryInsere.Execute();
-    Result := IntToStr(qryVerificaCodVenda.FieldByName('COD_VENDA').AsInteger + 10);
-    Params.ItemsString['Return'].AsString := IntToStr(qryVerificaCodVenda.FieldByName('COD_VENDA').AsInteger + 10);
+
     Server_FDConnection.Commit;
+
+    Result := 'Ok';
    except
     on e:exception do
     begin
       Server_FDConnection.Rollback;
       Result := 'Erro ao GRAVAR:' + e.Message;
-      Params.ItemsString['Return'].AsString := 'erro';
     end;
 
    end;
@@ -553,10 +553,7 @@ begin
     if not qryTemProduto.IsEmpty then
     begin
     qryUpdate.CommandText.Clear;
-    qryUpdate.CommandText.Add('UPDATE "PRODUTO" SET "DESCRICAO" = :DESCRICAO, '+
-                              '"PRECO" = :PRECO, '+
-                              'status = :STATUS, '+
-                              '"ESTOQUE" = :ESTOQUE' );
+    qryUpdate.CommandText.Add('UPDATE "PRODUTO" SET "DESCRICAO" = :DESCRICAO, "PRECO" = :PRECO, "STATUS" = :STATUS, "ESTOQUE" = :ESTOQUE' );
     qryUpdate.CommandText.Add('WHERE cod_produto = :cod_produto');
     qryUpdate.ParamByName('COD_PRODUTO').AsInteger    :=  StrtoInt(Params.ItemsString['COD_PRODUTO'].AsString);
     qryUpdate.ParamByName('DESCRICAO').AsString       :=  Params.ItemsString['NOME_PRODUTO'].AsString;

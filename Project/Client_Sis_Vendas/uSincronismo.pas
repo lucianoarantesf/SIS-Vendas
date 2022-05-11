@@ -24,14 +24,12 @@ interface
               function UpdateCadFornecedor(vNOME_FANTA,vCNPJ,vRAZAO_SOCIAL,vSTATUS : String) :Boolean;
               function DeleteCadFornecedor(vCNPJ : String) :Boolean;
 
-              function GravaCadProduto( vNOME_PRODUTO,vVALOR,vCOD_FORNECEDOR,vSTATUS : String) :Boolean;
-              function UpdateCadProduto(vCOD_PRODUTO,vNOME_PRODUTO,vVALOR,vCOD_FORNECEDOR,vSTATUS : String) :Boolean;
+              function GravaCadProduto( vNOME_PRODUTO,vVALOR,vCOD_FORNECEDOR,vSTATUS,vESTOQUE : String) :Boolean;
+              function UpdateCadProduto(vCOD_PRODUTO,vNOME_PRODUTO,vVALOR,vCOD_FORNECEDOR,vSTATUS,vESTOQUE : String) :Boolean;
               function DeleteCadProduto(vCOD_PRODUTO : String) :Boolean;
 
-              function AdicinarVenda( vDATA,vCOD_CLIENTE,vSTATUS : String) :Boolean;
+              function AdicinarVenda( vDATA,vCOD_CLIENTE,vSTATUS : String) :string;
               function AdicionarDetalVenda(vCOD_VENDA,vCOD_PRODUTO,vQUANTIDADE,vPRODUTO,vValor : String) :Boolean;
-              function GravarVenda(vCOD_VENDA : String) :Boolean;
-              function ExcluirVenda(vCOD_VENDA : String) :Boolean;
 
             end;
 
@@ -179,7 +177,7 @@ begin
 end;
 
 function TSincronismo.GravaCadProduto(vNOME_PRODUTO, vVALOR, vCOD_FORNECEDOR,
-  vSTATUS: String): Boolean;
+  vSTATUS, vESTOQUE: String): Boolean;
 var
  dwParams  : TDWParams;
  vError :String;
@@ -190,6 +188,7 @@ begin
    dwParams.ItemsString['VALOR'].AsString := vVALOR;
    dwParams.ItemsString['COD_FORNECEDOR'].AsString := vCOD_FORNECEDOR;
    dwParams.ItemsString['STATUS'].AsString := vSTATUS;
+   dwParams.ItemsString['ESTOQUE'].AsString := vESTOQUE;
    dm.DWClientEvents.SendEvent('GravarCadProduto',dwParams,vError);
    if vError = '' then
    begin
@@ -289,7 +288,7 @@ begin
 end;
 
 function TSincronismo.UpdateCadProduto(vCOD_PRODUTO,vNOME_PRODUTO, vVALOR, vCOD_FORNECEDOR,
-  vSTATUS: String): Boolean;
+  vSTATUS,vESTOQUE: String): Boolean;
 var
  dwParams  : TDWParams;
  vError :String;
@@ -301,6 +300,7 @@ begin
    dwParams.ItemsString['VALOR'].AsString := vVALOR;
    dwParams.ItemsString['COD_FORNECEDOR'].AsString := vCOD_FORNECEDOR;
    dwParams.ItemsString['STATUS'].AsString := vSTATUS;
+   dwParams.ItemsString['ESTOQUE'].AsString := vESTOQUE;
    dm.DWClientEvents.SendEvent('UpdateCadProduto',dwParams,vError);
    if vError = '' then
    begin
@@ -333,56 +333,8 @@ end;
 
 
 
-
-
-function TSincronismo.ExcluirVenda(vCOD_VENDA: String): Boolean;
-var
- dwParams  : TDWParams;
- vError :String;
-begin
-  try
-   dm.DWClientEvents.CreateDWParams('DeleteVenda',dwParams);
-   dwParams.ItemsString['COD_VENDA'].AsString := vCOD_VENDA ;
-   dm.DWClientEvents.SendEvent('DeleteVenda',dwParams,vError);
-   if vError = '' then
-   begin
-     Result := True;
-   end
-   else
-   begin
-    Result := False;
-   end;
-  finally
-   dwParams.Free;
-  end;
-end;
-
-
-
-function TSincronismo.GravarVenda(vCOD_VENDA: String): Boolean;
-var
- dwParams  : TDWParams;
- vError :String;
-begin
-  try
-   dm.DWClientEvents.CreateDWParams('GravarVenda',dwParams);
-   dwParams.ItemsString['COD_VENDA'].AsString := vCOD_VENDA ;
-   dm.DWClientEvents.SendEvent('GravarVenda',dwParams,vError);
-   if vError = '' then
-   begin
-     Result := True;
-   end
-   else
-   begin
-    Result := False;
-   end;
-  finally
-   dwParams.Free;
-  end;
-end;
-
 function TSincronismo.AdicinarVenda(vDATA, vCOD_CLIENTE,
-  vSTATUS: String): Boolean;
+  vSTATUS: String): String;
 var
  dwParams  : TDWParams;
  vError :String;
@@ -393,14 +345,15 @@ begin
    dwParams.ItemsString['COD_CLIENTE'].AsString := vCOD_CLIENTE;
    dwParams.ItemsString['STATUS'].AsString := vSTATUS;
    dm.DWClientEvents.SendEvent('AbrirVenda',dwParams,vError);
-   if vError = '' then
+   if (dwParams.ItemsString['Return'].AsString = 'erro') then
    begin
-     Result := True;
+     Result := 'Erro';
    end
    else
    begin
-    Result := False;
+    Result := dwParams.ItemsString['Return'].AsString;
    end;
+
   finally
    dwParams.Free;
   end;

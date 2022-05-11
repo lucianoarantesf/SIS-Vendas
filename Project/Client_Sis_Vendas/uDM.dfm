@@ -7,7 +7,7 @@ object DM: TDM
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '192.168.100.124'
+    MyIP = '127.0.0.1'
     AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True
     AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
@@ -18,7 +18,7 @@ object DM: TDM
     AuthenticationOptions.OptionParams.Password = '@dMiN01'
     Proxy = False
     ProxyOptions.Port = 8888
-    PoolerService = '192.168.100.111'
+    PoolerService = 'LOCALHOST'
     PoolerPort = 8082
     PoolerName = 'TServerMethodDM.RESTDWPoolerDB1'
     StateConnection.AutoCheck = False
@@ -57,7 +57,7 @@ object DM: TDM
     UpdateOptions.CheckRequired = False
     UpdateOptions.AutoCommitUpdates = True
     StoreDefs = True
-    BinaryCompatibleMode = False
+    BinaryCompatibleMode = True
     MasterCascadeDelete = True
     BinaryRequest = True
     Datapacks = -1
@@ -322,6 +322,13 @@ object DM: TDM
             ObjectValue = ovString
             ParamName = 'STATUS'
             Encoded = True
+          end
+          item
+            TypeObject = toParam
+            ObjectDirection = odIN
+            ObjectValue = ovString
+            ParamName = 'ESTOQUE'
+            Encoded = True
           end>
         JsonMode = jmDataware
         Name = 'GravarCadProduto'
@@ -365,6 +372,13 @@ object DM: TDM
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'STATUS'
+            Encoded = True
+          end
+          item
+            TypeObject = toParam
+            ObjectDirection = odIN
+            ObjectValue = ovString
+            ParamName = 'ESTOQUE'
             Encoded = True
           end>
         JsonMode = jmDataware
@@ -560,7 +574,7 @@ object DM: TDM
     Encoding = esUtf8
     hEncodeStrings = True
     ThreadRequest = False
-    Host = '192.168.100.111'
+    Host = 'LOCALHOST'
     AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True
     AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
@@ -671,9 +685,9 @@ object DM: TDM
     UpdateOptions.CheckRequired = False
     UpdateOptions.AutoCommitUpdates = True
     StoreDefs = True
-    BinaryCompatibleMode = False
+    BinaryCompatibleMode = True
     MasterCascadeDelete = True
-    BinaryRequest = False
+    BinaryRequest = True
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveCache
@@ -710,7 +724,7 @@ object DM: TDM
     Top = 6
   end
   object qryFornecedor: TRESTDWClientSQL
-    Active = True
+    Active = False
     Filtered = False
     FieldDefs = <
       item
@@ -771,9 +785,9 @@ object DM: TDM
     UpdateOptions.CheckRequired = False
     UpdateOptions.AutoCommitUpdates = True
     StoreDefs = True
-    BinaryCompatibleMode = False
+    BinaryCompatibleMode = True
     MasterCascadeDelete = True
-    BinaryRequest = False
+    BinaryRequest = True
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveCache
@@ -799,10 +813,125 @@ object DM: TDM
     Left = 262
     Top = 64
   end
-  object qryProduto_Fornecedor: TRESTDWClientSQL
+  object qryProduto: TRESTDWClientSQL
     Active = False
     Filtered = False
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'prodtext'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'precotext'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'statustxt'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'estoquetxt'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'cod_produto'
+        DataType = ftInteger
+      end
+      item
+        Name = 'DESCRICAO'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'PRECO'
+        DataType = ftSingle
+        Precision = 7
+      end
+      item
+        Name = 'cod_fornecedor'
+        DataType = ftInteger
+      end
+      item
+        Name = 'status'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'FLG_EXCLUIDO'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'ESTOQUE'
+        DataType = ftInteger
+      end
+      item
+        Name = 'fornecedor'
+        DataType = ftString
+        Size = 8190
+      end>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    BinaryCompatibleMode = True
+    MasterCascadeDelete = True
+    BinaryRequest = True
+    Datapacks = -1
+    DataCache = False
+    MassiveType = mtMassiveCache
+    Params = <>
+    DataBase = DataBase
+    SQL.Strings = (
+      
+        'SELECT  '#39'PRODUTO:'#39' ::"varchar"  AS PRODTEXT, '#39'PRE'#199'O:'#39'::"varchar"' +
+        '  AS PRECOTEXT, '#39'STATUS:'#39'::"varchar"  AS STATUSTXT, '#39'ESTOQUE:'#39'::' +
+        '"varchar"  AS ESTOQUETXT,'
+      
+        'P.*, (F."RAZAO_SOCIAL" || '#39' - '#39' || F."CNPJ")::"varchar" AS FORNE' +
+        'CEDOR  FROM "PRODUTO" P, "FORNECEDOR" F'
+      'WHERE P.cod_fornecedor = F.cod_fornecedor'
+      'AND P."FLG_EXCLUIDO" <>  TRUE')
+    CacheUpdateRecords = True
+    AutoCommitData = False
+    AutoRefreshAfterCommit = False
+    ThreadRequest = False
+    RaiseErrors = True
+    ActionCursor = crSQLWait
+    ReflectChanges = False
+    Left = 264
+    Top = 120
+  end
+  object qryCliente: TRESTDWClientSQL
+    Active = True
+    Filtered = False
+    FieldDefs = <
+      item
+        Name = 'cod_cliente'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cod_pessoa'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cpf'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'name'
+        DataType = ftString
+        Size = 8190
+      end>
     IndexDefs = <>
     FetchOptions.AssignedValues = [evMode]
     FetchOptions.Mode = fmAll
@@ -812,9 +941,118 @@ object DM: TDM
     UpdateOptions.CheckRequired = False
     UpdateOptions.AutoCommitUpdates = True
     StoreDefs = True
-    BinaryCompatibleMode = False
+    BinaryCompatibleMode = True
     MasterCascadeDelete = True
-    BinaryRequest = False
+    BinaryRequest = True
+    Datapacks = -1
+    DataCache = False
+    MassiveType = mtMassiveCache
+    Params = <>
+    DataBase = DataBase
+    SQL.Strings = (
+      
+        'SELECT cod_cliente, cod_pessoa,("CPF")::"varchar" AS CPF,("NAME"' +
+        ')::"varchar" AS NAME FROM "CLIENTE"'
+      'WHERE "STATUS" = '#39'Ativo'#39
+      'AND "FLG_EXCLUIDO" <> TRUE')
+    CacheUpdateRecords = True
+    AutoCommitData = False
+    AutoRefreshAfterCommit = False
+    ThreadRequest = False
+    RaiseErrors = True
+    ActionCursor = crSQLWait
+    ReflectChanges = False
+    Left = 262
+    Top = 174
+  end
+  object qryProdutoVenda: TRESTDWClientSQL
+    Active = True
+    Filtered = False
+    FieldDefs = <
+      item
+        Name = 'cod_produto'
+        DataType = ftInteger
+      end
+      item
+        Name = 'DESCRICAO'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'PRECO'
+        DataType = ftSingle
+      end
+      item
+        Name = 'cod_fornecedor'
+        DataType = ftInteger
+      end
+      item
+        Name = 'status'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'FLG_EXCLUIDO'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'ESTOQUE'
+        DataType = ftInteger
+      end
+      item
+        Name = 'identificador'
+        DataType = ftString
+        Size = 8190
+      end>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvStoreItems, rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    BinaryCompatibleMode = True
+    MasterCascadeDelete = True
+    BinaryRequest = True
+    Datapacks = -1
+    DataCache = False
+    MassiveType = mtMassiveCache
+    Params = <>
+    DataBase = DataBase
+    SQL.Strings = (
+      
+        'SELECT * ,('#39'PROD: '#39'|| "DESCRICAO" || '#39' -  VALOR: '#39' || "PRECO")::' +
+        '"varchar"  AS IDENTIFICADOR FROM "PRODUTO"'
+      'WHERE status = '#39'Ativo'#39
+      'AND "FLG_EXCLUIDO" <> TRUE')
+    CacheUpdateRecords = True
+    AutoCommitData = False
+    AutoRefreshAfterCommit = False
+    ThreadRequest = False
+    RaiseErrors = True
+    ActionCursor = crSQLWait
+    ReflectChanges = False
+    Left = 294
+    Top = 174
+  end
+  object qryProduto_Fornecedor: TRESTDWClientSQL
+    Active = False
+    Filtered = False
+    FieldDefs = <>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    BinaryCompatibleMode = True
+    MasterCascadeDelete = True
+    BinaryRequest = True
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveCache
@@ -832,13 +1070,68 @@ object DM: TDM
     RaiseErrors = True
     ActionCursor = crSQLWait
     ReflectChanges = False
-    Left = 294
+    Left = 312
     Top = 120
+    object qryProduto_Fornecedorcod_fornecedor: TIntegerField
+      FieldName = 'cod_fornecedor'
+    end
+    object qryProduto_Fornecedoridentificador: TStringField
+      FieldName = 'identificador'
+      Size = 8190
+    end
   end
-  object qryProduto: TRESTDWClientSQL
-    Active = False
+  object qryVendas: TRESTDWClientSQL
+    Active = True
     Filtered = False
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'datatxt'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'DATA'
+        DataType = ftDate
+      end
+      item
+        Name = 'clientetxt'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'NAME'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'produtotxt'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'PRODUTO'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'quantidadetxt'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'QUANTIDADE'
+        DataType = ftInteger
+      end
+      item
+        Name = 'valorvendatxt'
+        DataType = ftString
+        Size = 8190
+      end
+      item
+        Name = 'VALOR_TOTAL'
+        DataType = ftSingle
+        Precision = 7
+      end>
     IndexDefs = <>
     FetchOptions.AssignedValues = [evMode]
     FetchOptions.Mode = fmAll
@@ -857,160 +1150,23 @@ object DM: TDM
     Params = <>
     DataBase = DataBase
     SQL.Strings = (
-      
-        'SELECT P.*,(F."RAZAO_SOCIAL" || '#39' - '#39' || F."CNPJ")::"varchar" AS' +
-        ' FORNECEDOR  FROM "PRODUTO" P, "FORNECEDOR" F'
-      'WHERE P.cod_fornecedor = F.cod_fornecedor')
+      'SELECT '
+      #39'DATA:'#39'::"varchar" as DataTxt,'#9#9#9#9'V."DATA",'
+      #39'CLIENTE:'#39'::"varchar" as ClienteTxt,'#9#9'C."NAME",'
+      #39'PRODUTO:'#39'::"varchar" as ProdutoTxt,'#9#9'DV."PRODUTO",'
+      #39'QUANTIDADE:'#39'::"varchar" as QuantidadeTxt,  DV."QUANTIDADE",'
+      #39'VALOR VENDA:'#39'::"varchar" as ValorVendaTxt, DV."VALOR_TOTAL"'
+      'FROM "VENDA" V, "DETAL_VENDA" DV, "CLIENTE" C'
+      'WHERE V.cod_venda = DV."COD_VENDA"'
+      'AND V."COD_CLIENTE" = C.cod_cliente')
     CacheUpdateRecords = True
     AutoCommitData = False
     AutoRefreshAfterCommit = False
     ThreadRequest = False
     RaiseErrors = True
-    ActionCursor = crSQLWait
+    ActionCursor = crHourGlass
     ReflectChanges = False
     Left = 264
-    Top = 120
-  end
-  object qryCliente: TRESTDWClientSQL
-    Active = False
-    Filtered = False
-    FieldDefs = <>
-    IndexDefs = <>
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvStoreItems, rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    StoreDefs = True
-    BinaryCompatibleMode = False
-    MasterCascadeDelete = True
-    BinaryRequest = True
-    Datapacks = -1
-    DataCache = False
-    MassiveType = mtMassiveCache
-    Params = <>
-    DataBase = DataBase
-    SQL.Strings = (
-      
-        'SELECT cod_cliente, cod_pessoa,("CPF")::"varchar" AS CPF,("NAME"' +
-        ')::"varchar" AS NAME FROM "CLIENTE"'
-      'WHERE "STATUS" = '#39'Ativo'#39)
-    CacheUpdateRecords = True
-    AutoCommitData = False
-    AutoRefreshAfterCommit = False
-    ThreadRequest = False
-    RaiseErrors = True
-    ActionCursor = crSQLWait
-    ReflectChanges = False
-    Left = 262
-    Top = 174
-  end
-  object qryProdutoVenda: TRESTDWClientSQL
-    Active = False
-    Filtered = False
-    FieldDefs = <>
-    IndexDefs = <>
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvStoreItems, rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    StoreDefs = True
-    BinaryCompatibleMode = False
-    MasterCascadeDelete = True
-    BinaryRequest = True
-    Datapacks = -1
-    DataCache = False
-    MassiveType = mtMassiveCache
-    Params = <>
-    DataBase = DataBase
-    SQL.Strings = (
-      'SELECT * FROM "PRODUTO"'
-      'WHERE status = '#39'Ativo'#39)
-    CacheUpdateRecords = True
-    AutoCommitData = False
-    AutoRefreshAfterCommit = False
-    ThreadRequest = False
-    RaiseErrors = True
-    ActionCursor = crSQLWait
-    ReflectChanges = False
-    Left = 294
-    Top = 174
-  end
-  object qryVenda: TRESTDWClientSQL
-    Active = False
-    Filtered = False
-    FieldDefs = <>
-    IndexDefs = <>
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvStoreItems, rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    StoreDefs = True
-    BinaryCompatibleMode = False
-    MasterCascadeDelete = True
-    BinaryRequest = True
-    Datapacks = -1
-    DataCache = False
-    MassiveType = mtMassiveCache
-    Params = <>
-    DataBase = DataBase
-    SQL.Strings = (
-      'SELECT * FROM "VENDA"')
-    CacheUpdateRecords = True
-    AutoCommitData = False
-    AutoRefreshAfterCommit = False
-    ThreadRequest = False
-    RaiseErrors = True
-    ActionCursor = crSQLWait
-    ReflectChanges = False
-    Left = 262
-    Top = 206
-  end
-  object qryDetalVenda: TRESTDWClientSQL
-    Active = False
-    Filtered = False
-    FieldDefs = <>
-    IndexDefs = <>
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvStoreItems, rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    StoreDefs = True
-    BinaryCompatibleMode = False
-    MasterCascadeDelete = True
-    BinaryRequest = False
-    Datapacks = -1
-    DataCache = False
-    MassiveType = mtMassiveCache
-    Params = <
-      item
-        DataType = ftInteger
-        Name = 'COD_VENDA'
-        ParamType = ptInput
-      end>
-    DataBase = DataBase
-    SQL.Strings = (
-      'SELECT * FROM "DETAL_VENDA"'
-      'WHERE "COD_VENDA" = :COD_VENDA')
-    CacheUpdateRecords = True
-    AutoCommitData = False
-    AutoRefreshAfterCommit = False
-    ThreadRequest = False
-    RaiseErrors = True
-    ActionCursor = crSQLWait
-    ReflectChanges = False
-    Left = 294
-    Top = 206
+    Top = 224
   end
 end

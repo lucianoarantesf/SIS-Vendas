@@ -15,7 +15,7 @@ Begin
   {$APPTYPE CONSOLE}
    // In debug mode the server acts as a console application.
   Try
-   WriteLn('Vendas RDW CORE - Server : DEBUG mode.');
+   WriteLn('Vendas RDW CORE - Server : DEBUG mode. Press enter to exit.');
    // Create the TService descendant manually.
    If Not Application.DelayInitialize Or Application.Installing Then
     Application.Initialize;

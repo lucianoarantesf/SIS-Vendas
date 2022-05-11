@@ -25,7 +25,6 @@ object ServerMethodDM: TServerMethodDM
       'Password=sa'
       'Server=192.168.10.14'
       'DriverID=PG')
-    Connected = True
     LoginPrompt = False
     Left = 47
     Top = 25
@@ -377,13 +376,6 @@ object ServerMethodDM: TServerMethodDM
             ObjectValue = ovString
             ParamName = 'STATUS'
             Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'Return'
-            Encoded = True
           end>
         JsonMode = jmDataware
         Name = 'AbrirVenda'
@@ -637,9 +629,6 @@ object ServerMethodDM: TServerMethodDM
     end
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorHome = 
-      'C:\TrabalhosFaculdade\SIS Vendas\Project\Server_Sis_Vendas\SERVE' +
-      'R'
     Left = 48
     Top = 80
   end

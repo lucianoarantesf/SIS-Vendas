@@ -377,13 +377,6 @@ object ServerMethodDM: TServerMethodDM
             ObjectValue = ovString
             ParamName = 'STATUS'
             Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'Return'
-            Encoded = True
           end>
         JsonMode = jmDataware
         Name = 'AbrirVenda'

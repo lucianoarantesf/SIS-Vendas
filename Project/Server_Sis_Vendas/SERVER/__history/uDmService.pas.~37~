@@ -245,6 +245,8 @@ begin
     Result := IntToStr(qryVerificaCodVenda.FieldByName('COD_VENDA').AsInteger + 10);
     Params.ItemsString['Return'].AsString := IntToStr(qryVerificaCodVenda.FieldByName('COD_VENDA').AsInteger + 10);
     Server_FDConnection.Commit;
+
+
    except
     on e:exception do
     begin

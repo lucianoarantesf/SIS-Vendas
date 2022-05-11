@@ -25,7 +25,6 @@ object ServerMethodDM: TServerMethodDM
       'Password=sa'
       'Server=192.168.10.14'
       'DriverID=PG')
-    Connected = True
     LoginPrompt = False
     Left = 47
     Top = 25
@@ -376,13 +375,6 @@ object ServerMethodDM: TServerMethodDM
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'STATUS'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'Return'
             Encoded = True
           end>
         JsonMode = jmDataware

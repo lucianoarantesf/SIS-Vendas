@@ -2,14 +2,13 @@ object ServerMethodDM: TServerMethodDM
   OldCreateOrder = False
   Encoding = esUtf8
   OnUserBasicAuth = ServerMethodDataModuleUserBasicAuth
-  QueuedRequest = False
   Height = 476
   Width = 717
   object RESTDWPoolerDB1: TRESTDWPoolerDB
     RESTDriver = RESTDWDriverFD1
     Compression = True
     Encoding = esUtf8
-    StrsTrim = True
+    StrsTrim = False
     StrsEmpty2Null = False
     StrsTrim2Len = True
     Active = True
@@ -23,18 +22,22 @@ object ServerMethodDM: TServerMethodDM
       'Database=DBV'
       'User_Name=Admin'
       'Password=sa'
-      'Server=192.168.10.14'
+      'Server=LOCALHOST'
       'DriverID=PG')
-    Connected = True
     LoginPrompt = False
     Left = 47
     Top = 25
   end
   object RESTDWDriverFD1: TRESTDWDriverFD
-    CommitRecords = 5000
+    CommitRecords = 100
     Connection = Server_FDConnection
     Left = 111
     Top = 25
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Console'
+    Left = 112
+    Top = 80
   end
   object DWServerEvents: TDWServerEvents
     IgnoreInvalidParams = True
@@ -322,13 +325,6 @@ object ServerMethodDM: TServerMethodDM
             ObjectValue = ovString
             ParamName = 'STATUS'
             Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odIN
-            ObjectValue = ovString
-            ParamName = 'ESTOQUE'
-            Encoded = True
           end>
         JsonMode = jmDataware
         Name = 'UpdateCadProduto'
@@ -376,13 +372,6 @@ object ServerMethodDM: TServerMethodDM
             ObjectDirection = odIN
             ObjectValue = ovString
             ParamName = 'STATUS'
-            Encoded = True
-          end
-          item
-            TypeObject = toParam
-            ObjectDirection = odOUT
-            ObjectValue = ovString
-            ParamName = 'Return'
             Encoded = True
           end>
         JsonMode = jmDataware
@@ -532,6 +521,19 @@ object ServerMethodDM: TServerMethodDM
     Left = 144
     Top = 24
   end
+  object FDStanStorageBinLink1: TFDStanStorageBinLink
+    Left = 80
+    Top = 80
+  end
+  object FDStanStorageJSONLink1: TFDStanStorageJSONLink
+    Left = 144
+    Top = 80
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorHome = 'C:\Users\HP-2007\Desktop\Sis_Vendas\Server_Sis_Vendas\SERVER'
+    Left = 48
+    Top = 80
+  end
   object qryInsere: TFDCommand
     Connection = Server_FDConnection
     Left = 288
@@ -635,25 +637,5 @@ object ServerMethodDM: TServerMethodDM
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       ReadOnly = True
     end
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorHome = 
-      'C:\TrabalhosFaculdade\SIS Vendas\Project\Server_Sis_Vendas\SERVE' +
-      'R'
-    Left = 48
-    Top = 80
-  end
-  object FDStanStorageJSONLink1: TFDStanStorageJSONLink
-    Left = 432
-    Top = 24
-  end
-  object FDStanStorageBinLink1: TFDStanStorageBinLink
-    Left = 440
-    Top = 32
-  end
-  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
-    Provider = 'Forms'
-    Left = 80
-    Top = 80
   end
 end

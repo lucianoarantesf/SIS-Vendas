@@ -16,12 +16,13 @@ type
     RESTClientPooler: TRESTClientPooler;
     qryPessoa: TRESTDWClientSQL;
     qryFornecedor: TRESTDWClientSQL;
-    qryProduto_Fornecedor: TRESTDWClientSQL;
     qryProduto: TRESTDWClientSQL;
     qryCliente: TRESTDWClientSQL;
     qryProdutoVenda: TRESTDWClientSQL;
-    qryVenda: TRESTDWClientSQL;
-    qryDetalVenda: TRESTDWClientSQL;
+    qryProduto_Fornecedor: TRESTDWClientSQL;
+    qryProduto_Fornecedorcod_fornecedor: TIntegerField;
+    qryProduto_Fornecedoridentificador: TStringField;
+    qryVendas: TRESTDWClientSQL;
   private
     { Private declarations }
   public

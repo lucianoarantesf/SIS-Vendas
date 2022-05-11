@@ -242,15 +242,16 @@ begin
 
 
     qryInsere.Execute();
-    Result := IntToStr(qryVerificaCodVenda.FieldByName('COD_VENDA').AsInteger + 10);
-    Params.ItemsString['Return'].AsString := IntToStr(qryVerificaCodVenda.FieldByName('COD_VENDA').AsInteger + 10);
+
     Server_FDConnection.Commit;
+
+    Result := 'Ok';
+    Params.ItemsString['Return'].AsString := IntToStr(qryVerificaCodVenda.FieldByName('COD_VENDA').AsInteger + 10);
    except
     on e:exception do
     begin
       Server_FDConnection.Rollback;
       Result := 'Erro ao GRAVAR:' + e.Message;
-      Params.ItemsString['Return'].AsString := 'erro';
     end;
 
    end;

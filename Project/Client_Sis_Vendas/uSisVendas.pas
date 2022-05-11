@@ -4,14 +4,19 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants, uDM, uSincronismo,
+  System.Variants, uDM, uSincronismo,uFormat,
+
+  {$IFDEF ANDROID}
+   FMX.platform.Android,
+  {$ENDIF}
+
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Objects, FMX.ListBox, FMX.Layouts, FMX.Controls.Presentation,
   FMX.MultiView, FMX.TabControl, FMX.Edit, FMX.ListView.Types,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
   System.Actions, FMX.ActnList, FMX.DateTimeCtrls, System.Rtti,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, Skia.FMX;
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope, Skia.FMX, FMX.VirtualKeyboard, FMX.Platform;
 
 type
   TFormPrincipal = class(TForm)
@@ -129,7 +134,6 @@ type
     cbClienteVenda: TComboBox;
     edtQuantidadeVenda: TEdit;
     edtDataVenda: TDateEdit;
-    edtHoraVenda: TTimeEdit;
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
@@ -143,16 +147,26 @@ type
     btnEditarCadFornecedor: TImage;
     btnExcluirCadFornecedor: TImage;
     btnSalvarCadFornecedor: TImage;
-    Image4: TImage;
-    Image5: TImage;
-    Image6: TImage;
-    Image7: TImage;
-    Image8: TImage;
-    Image9: TImage;
+    btnEditarCadProduto: TImage;
+    btnExcluirCadProduto: TImage;
+    btnGravarCadProduto: TImage;
+    btnSalvarVenda: TImage;
     BindSourceDB2: TBindSourceDB;
     LinkListControlToField2: TLinkListControlToField;
     SuccessAnimation: TSkAnimatedImage;
     ErrorAnimation: TSkAnimatedImage;
+    BindSourceDB3: TBindSourceDB;
+    LinkListControlToField3: TLinkListControlToField;
+    BindSourceDB4: TBindSourceDB;
+    LinkListControlToField4: TLinkListControlToField;
+    BindSourceDB5: TBindSourceDB;
+    BindSourceDB6: TBindSourceDB;
+    LinkListControlToField5: TLinkListControlToField;
+    LinkListControlToField6: TLinkListControlToField;
+    ListBoxItem17: TListBoxItem;
+    lblDetalheVenda: TLabel;
+    BindSourceDB7: TBindSourceDB;
+    LinkListControlToField7: TLinkListControlToField;
     procedure cbTipCadastroClosePopup(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnLogOutClick(Sender: TObject);
@@ -178,6 +192,26 @@ type
     procedure ListBoxItemSalvarCadPessoaClick(Sender: TObject);
     procedure SuccessAnimationAnimationFinished(Sender: TObject);
     procedure ErrorAnimationAnimationFinished(Sender: TObject);
+    procedure btnSalvarCadFornecedorClick(Sender: TObject);
+    procedure btnExcluirCadFornecedorClick(Sender: TObject);
+    procedure btnEditarCadFornecedorClick(Sender: TObject);
+    procedure edtCNPJFornecedorTyping(Sender: TObject);
+    procedure edtCpfCadPessoaTyping(Sender: TObject);
+    procedure EdtCepCadPessoaTyping(Sender: TObject);
+    procedure edtPrecoProdutoTyping(Sender: TObject);
+    procedure edtEstoqueProdutoTyping(Sender: TObject);
+    procedure lvCadProdutoItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure btnGravarCadProdutoClick(Sender: TObject);
+    procedure btnEditarCadProdutoClick(Sender: TObject);
+    procedure btnExcluirCadProdutoClick(Sender: TObject);
+    procedure ListBoxItem6Click(Sender: TObject);
+    procedure ListBoxItem12Click(Sender: TObject);
+    procedure edtQuantidadeVendaTyping(Sender: TObject);
+    procedure edtQuantidadeVendaValidating(Sender: TObject; var Text: string);
+    procedure btnSalvarVendaClick(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
     procedure VerificaLogin;
@@ -215,9 +249,111 @@ end;
 
 procedure TFormPrincipal.btnCadastroProdutoClick(Sender: TObject);
 begin
+ dm.qryProduto_Fornecedor.Close;
+ dm.qryProduto_Fornecedor.Open;
+
+ dm.qryProduto.Close;
+ dm.qryProduto.Open;
+
  ChangeTab.Tab := tabCadProduto;
  ChangeTab.ExecuteTarget(Self);
  MultiView.HideMaster;
+end;
+
+procedure TFormPrincipal.btnGravarCadProdutoClick(Sender: TObject);
+var
+ Salvar : Boolean;
+ vStatus : String;
+begin
+
+       if cbFornecedorProduto.ItemIndex  = -1 then
+       ShowMessage('Informe O Fornecedor');
+
+       if edtDescricaoProduto.Text= '' then
+       begin
+         ShowMessage('Informe a Descrição do Produto.');
+         edtDescricaoProduto.SetFocus;
+         abort;
+       end;
+
+       if edtPrecoProduto.Text= '' then
+       begin
+         ShowMessage('Informe o Preço.');
+         edtPrecoProduto.SetFocus;
+         abort;
+       end;
+
+       if edtEstoqueProduto.Text= '' then
+       begin
+         ShowMessage('Informe a Quantidade em Estoque.');
+         edtEstoqueProduto.SetFocus;
+         abort;
+       end;
+
+    if rbAtivoProduto.IsChecked then vStatus := 'Ativo'
+    else
+    if rbDesativadoProduto.IsChecked then vStatus := 'Desativado';
+
+    uSync.Conectando;
+
+    Salvar := uSync.GravaCadProduto(trim(edtDescricaoProduto.Text),
+      trim(edtPrecoProduto.Text),
+      DM.qryProduto_Fornecedor.FieldByName('cod_fornecedor').AsString,
+      trim(vStatus),
+      trim(edtEstoqueProduto.Text));
+
+   if Salvar then
+   begin
+     DM.qryProduto.Close;
+     DM.qryProduto.Open;
+     SuccessAnimation.Visible := True;
+     LimpaCampos;
+   end
+   else ErrorAnimation.Visible := False;
+end;
+
+procedure TFormPrincipal.btnEditarCadFornecedorClick(Sender: TObject);
+var status :String;
+begin
+
+    if edtNomeFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o Nome Fantasia.');
+       edtNomeFornecedor.SetFocus;
+       abort;
+     end;
+
+     if edtRazaoSocialFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o Razão Social.');
+       edtRazaoSocialFornecedor.SetFocus;
+       abort;
+     end;
+
+     if edtCNPJFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o CNPJ.');
+       edtCNPJFornecedor.SetFocus;
+       abort;
+     end;
+
+    uSync.Conectando;
+
+    if rbFornecedorAtivo.IsChecked then status := 'Ativo' else status := 'Desativado';
+
+
+   if uSync.UpdateCadFornecedor(trim(edtNomeFornecedor.Text),
+       trim(edtCNPJFornecedor.Text), trim(edtRazaoSocialFornecedor.Text),
+       status) then
+    begin
+      dm.qryFornecedor.Close;
+      dm.qryFornecedor.Open;
+      SuccessAnimation.Visible := True;
+    end
+    else ErrorAnimation.Visible := True;
+
+
+   LimpaCampos;
 end;
 
 procedure TFormPrincipal.btnEditarCadPessoaClick(Sender: TObject);
@@ -258,32 +394,151 @@ begin
    LimpaCampos;
 end;
 
-procedure TFormPrincipal.btnExcluirCadPessoaClick(Sender: TObject);
+procedure TFormPrincipal.btnEditarCadProdutoClick(Sender: TObject);
+VAR
+ vStatus : String;
+ Salvar : Boolean;
 begin
 
-     if cbTipCadastro.ItemIndex = -1 then
-    ShowMessage('Informe o tipo de pessoa.');
+       if cbFornecedorProduto.ItemIndex  = -1 then
+       ShowMessage('Informe O Fornecedor');
 
-  if EdtNomeCadPessoa.Text = '' then
-  begin
-    ShowMessage('Informe o Nome.');
-    EdtNomeCadPessoa.SetFocus;
-    abort;
-  end;
+       if edtDescricaoProduto.Text= '' then
+       begin
+         ShowMessage('Informe a Descrição do Produto.');
+         edtDescricaoProduto.SetFocus;
+         abort;
+       end;
 
-  if edtCpfCadPessoa.Text = '' then
-  begin
-    ShowMessage('Informe o CPF.');
-    edtCpfCadPessoa.SetFocus;
-    abort;
-  end;
+       if edtPrecoProduto.Text= '' then
+       begin
+         ShowMessage('Informe o Preço.');
+         edtPrecoProduto.SetFocus;
+         abort;
+       end;
+
+       if edtEstoqueProduto.Text= '' then
+       begin
+         ShowMessage('Informe a Quantidade em Estoque.');
+         edtEstoqueProduto.SetFocus;
+         abort;
+       end;
+
+
+    if rbAtivoProduto.IsChecked then vStatus := 'Ativo'
+    else
+    if rbDesativadoProduto.IsChecked then vStatus := 'Desativado';
 
     uSync.Conectando;
 
-    if uSync.DeleteCadPessoa(trim(edtCpfCadPessoa.Text)) then
+    Salvar := uSync.UpdateCadProduto(
+      dm.qryProduto.FieldByName('cod_produto').AsString,
+      trim(edtDescricaoProduto.Text),
+      trim(edtPrecoProduto.Text),
+      dm.qryProduto.FieldByName('cod_fornecedor').AsString,
+      trim(vStatus),
+      trim(edtEstoqueProduto.Text));
+
+   if Salvar then
+   begin
+     DM.qryProduto.Close;
+     DM.qryProduto.Open;
+     SuccessAnimation.Visible := True;
+     LimpaCampos;
+   end
+   else ErrorAnimation.Visible := False;
+end;
+
+procedure TFormPrincipal.btnExcluirCadFornecedorClick(Sender: TObject);
+begin
+    if edtNomeFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o Nome Fantasia.');
+       edtNomeFornecedor.SetFocus;
+       abort;
+     end;
+
+     if edtRazaoSocialFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o Razão Social.');
+       edtRazaoSocialFornecedor.SetFocus;
+       abort;
+     end;
+
+     if edtCNPJFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o CNPJ.');
+       edtCNPJFornecedor.SetFocus;
+       abort;
+     end;
+
+    uSync.Conectando;
+
+    if uSync.DeleteCadFornecedor(trim(edtCNPJFornecedor.Text)) then
     begin
-      dm.qryPessoa.Close;
-      dm.qryPessoa.Open;
+     DM.qryFornecedor.Close;
+     DM.qryFornecedor.Open;
+     SuccessAnimation.Visible := True;
+     LimpaCampos;
+    end
+    else ErrorAnimation.Visible := True;
+
+
+
+   LimpaCampos;
+end;
+
+procedure TFormPrincipal.btnExcluirCadPessoaClick(Sender: TObject);
+begin
+  if cbFornecedorProduto.ItemIndex  = -1 then
+       ShowMessage('Informe O Fornecedor');
+
+       if edtDescricaoProduto.Text= '' then
+       begin
+         ShowMessage('Informe a Descrição do Produto.');
+         edtDescricaoProduto.SetFocus;
+         abort;
+       end;
+
+       if edtPrecoProduto.Text= '' then
+       begin
+         ShowMessage('Informe o Preço.');
+         edtPrecoProduto.SetFocus;
+         abort;
+       end;
+
+       if edtEstoqueProduto.Text= '' then
+       begin
+         ShowMessage('Informe a Quantidade em Estoque.');
+         edtEstoqueProduto.SetFocus;
+         abort;
+       end;
+
+
+    uSync.Conectando;
+
+    if uSync.DeleteCadProduto(dm.qryProduto.FieldByName('cod_produto').AsString) then
+    begin
+      dm.qryProduto.Close;
+      dm.qryProduto.Open;
+      SuccessAnimation.Visible := True;
+    end
+    else ErrorAnimation.Visible := True;
+
+
+
+   LimpaCampos;
+end;
+
+procedure TFormPrincipal.btnExcluirCadProdutoClick(Sender: TObject);
+begin
+
+    uSync.Conectando;
+
+    if uSync.DeleteCadProduto(dm.qryProduto.FieldByName('cod_produto').AsString) then
+    begin
+      dm.qryProduto.Close;
+      dm.qryProduto.Open;
       SuccessAnimation.Visible := True;
     end
     else ErrorAnimation.Visible := True;
@@ -322,6 +577,69 @@ btnLogin.Margins.Top := 3;
 btnLogin.Margins.Left := 3;
 btnLogin.Margins.Right := 3;
 btnLogin.Margins.Bottom := 3;
+end;
+
+procedure TFormPrincipal.btnSalvarCadFornecedorClick(Sender: TObject);
+var salvar : Boolean;
+begin
+
+    if edtNomeFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o Nome Fantasia.');
+       edtNomeFornecedor.SetFocus;
+       abort;
+     end;
+
+     if edtRazaoSocialFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o Razão Social.');
+       edtRazaoSocialFornecedor.SetFocus;
+       abort;
+     end;
+
+     if edtCNPJFornecedor.Text= '' then
+     begin
+       ShowMessage('Informe o CNPJ.');
+       edtCNPJFornecedor.SetFocus;
+       abort;
+     end;
+
+    dm.qryFornecedor.First;
+    while not dm.qryFornecedor.eof do
+    begin
+      if trim(edtNomeFornecedor.Text) = dm.qryFornecedor.FieldByName('CNPJ').AsString then
+      begin
+        ShowMessage('CNPJ já cadastrado !');
+        abort;
+      end;
+      dm.qryFornecedor.Next;
+    end;
+
+   uSync.Conectando;
+
+
+   if rbFornecedorAtivo.IsChecked then
+   begin
+     Salvar := uSync.GravaCadFornecedor(trim(edtNomeFornecedor.Text),
+       trim(edtCNPJFornecedor.Text), trim(edtRazaoSocialFornecedor.Text),
+       'Ativo');
+   end
+   else
+   if rbFornecedorDestativado.IsChecked then
+   begin
+     Salvar := uSync.GravaCadFornecedor(trim(edtNomeFornecedor.Text),
+       trim(edtCNPJFornecedor.Text), trim(edtRazaoSocialFornecedor.Text),
+       'Desativado');
+   end;
+
+   if Salvar then
+   begin
+     DM.qryFornecedor.Close;
+     DM.qryFornecedor.Open;
+     SuccessAnimation.Visible := True;
+     LimpaCampos;
+   end
+   else ErrorAnimation.Visible := False;
 end;
 
 procedure TFormPrincipal.btnSalvarCadPessoaClick(Sender: TObject);
@@ -383,6 +701,66 @@ begin
 
 end;
 
+procedure TFormPrincipal.btnSalvarVendaClick(Sender: TObject);
+var
+vCodVenda : String;
+begin
+  if edtDataVenda.Date <= Now then
+    begin
+    ShowMessage('Informe uma Data Valida.');
+    Abort;
+    end;
+
+  if cbClienteVenda.ItemIndex = -1 then
+    begin
+    ShowMessage('Informe um Cliente.');
+    Abort;
+    end;
+
+  if cbProdutoVenda.ItemIndex = -1 then
+    begin
+    ShowMessage('Informe um Produto.');
+    Abort;
+    end;
+
+  if edtQuantidadeVenda.Text = '' then
+   begin
+    ShowMessage('Informe a quantidade.');
+    Abort;
+   end;
+
+   vCodVenda :=  uSync.AdicinarVenda(FormatDateTime('DD/MM/YYYY hh:mm:ss',edtDataVenda.DateTime),
+                       DM.qryCliente.FieldByName('cod_cliente').AsString,
+                       'Efetivada');
+
+   if vCodVenda <> 'Erro' then
+   begin
+     if uSync.AdicionarDetalVenda(vCodVenda,
+                                  dm.qryProdutoVenda.FieldByName('cod_produto').AsString,
+                                  edtQuantidadeVenda.Text,
+                                  dm.qryProdutoVenda.FieldByName('DESCRICAO').AsString,
+                                  FormatFloat('0.00',(DM.qryProdutoVenda.FieldByName('PRECO').AsFloat
+                                                      * StrToIntDef( edtQuantidadeVenda.Text, 0)))
+                                  )
+     then
+     begin
+     DM.qryVendas.Close;
+     DM.qryVendas.Open;
+     SuccessAnimation.Visible := True;
+
+     end;
+
+   end
+   else
+   begin
+     DM.qryVendas.Close;
+     DM.qryVendas.Open;
+     ErrorAnimation.Visible := True;
+   end;
+
+     LimpaCampos;
+end;
+
 procedure TFormPrincipal.btnLogOutClick(Sender: TObject);
 begin
 LimpaCampos;
@@ -394,6 +772,12 @@ end;
 
 procedure TFormPrincipal.btnVendasClick(Sender: TObject);
 begin
+ dm.qryProdutoVenda.Close;
+ dm.qryProdutoVenda.Open;
+
+ dM.qryCliente.Close;
+ DM.qryCliente.Open;
+
  ChangeTab.Tab := tabVenda;
  ChangeTab.ExecuteTarget(Self);
  MultiView.HideMaster;
@@ -407,9 +791,54 @@ begin
     ListBoxItemAcessos.Enabled := False;
 end;
 
+procedure TFormPrincipal.EdtCepCadPessoaTyping(Sender: TObject);
+begin
+uFormat.Formatar(sender, uFormat.CEP);
+end;
+
+procedure TFormPrincipal.edtCNPJFornecedorTyping(Sender: TObject);
+begin
+uFormat.Formatar(sender, uFormat.CNPJ);
+end;
+
+procedure TFormPrincipal.edtCpfCadPessoaTyping(Sender: TObject);
+begin
+uFormat.Formatar(sender, uFormat.CPF);
+end;
+
+procedure TFormPrincipal.edtEstoqueProdutoTyping(Sender: TObject);
+begin
+uFormat.Formatar(sender, uFormat.SomenteNumeros);
+end;
+
+procedure TFormPrincipal.edtPrecoProdutoTyping(Sender: TObject);
+begin
+uFormat.Formatar(sender, uFormat.Money);
+end;
+
+procedure TFormPrincipal.edtQuantidadeVendaTyping(Sender: TObject);
+begin
+uFormat.Formatar(sender,uFormat.SomenteNumeros);
+end;
+
+procedure TFormPrincipal.edtQuantidadeVendaValidating(Sender: TObject;
+  var Text: string);
+var
+  vValor : Double;
+begin
+ if StrToIntDef(Text,0) > dm.qryProdutoVenda.FieldByName('ESTOQUE').AsInteger then
+   Text := IntToStr(dm.qryProdutoVenda.FieldByName('ESTOQUE').AsInteger);
+
+   vValor :=  dm.qryProdutoVenda.FieldByName('PRECO').AsFloat * StrToIntDef(Text,0);
+   lblDetalheVenda.Text := 'Valor total da Venda: ' + FormatFloat('R$ 0.00', vValor);
+end;
+
 procedure TFormPrincipal.ErrorAnimationAnimationFinished(Sender: TObject);
 begin
 ErrorAnimation.Visible := False;
+
+if RecLogin.IsVisible then
+ ShowMessage('Usuário ou Senha Incorretos');
 end;
 
 procedure TFormPrincipal.FormCreate(Sender: TObject);
@@ -423,8 +852,64 @@ ListBoxItemAcessos.Enabled := False;
 TabControl.ActiveTab :=  tabMenu;
 end;
 
+procedure TFormPrincipal.FormKeyUp(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+var
+  Teclado: IFMXVirtualKeyboardService;
+  begin
+
+   {Recebe o estado do teclado virtual}
+    TPlatformServices.Current.SupportsPlatformService(IFMXVirtualKeyboardService, IInterface(Teclado));
+
+   {Se o botão back pressionado e o teclado virtual ativo, não faz nada}
+
+
+    if Key = vkHardwareBack then
+    begin
+
+      if (Teclado <> nil) and (TVirtualKeyboardState.Visible in Teclado.VirtualKeyboardState) then
+      begin
+       //Reservado, não faz nada
+      end
+      else
+      begin
+       /////////////////////////////////////////////////////////////////////////////////////
+        if (TabControl.ActiveTab = tabMenu) or (RecLogin.IsVisible) then
+        begin
+
+          MessageDlg('Deseja sair do Sys Venda', TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0,
+            procedure(const AResult: TModalResult)
+            begin
+              if AResult = mrYes then
+              begin
+                 {$IFDEF ANDROID}
+                MainActivity.finish;
+                 {$ELSE}
+                exit;
+                 {$ENDIF}
+              end;
+            end);
+
+        end;
+
+        if TabControl.ActiveTab <> tabMenu then
+        begin
+        ChangeTab.Tab := tabMenu;
+        ChangeTab.ExecuteTarget(Self);
+
+        Key := 0;
+      end;
+    end;
+
+  end;
+end;
+
 procedure TFormPrincipal.LimpaCampos;
 begin
+
+    btnEditarCadProduto.Visible := False;
+    btnExcluirCadProduto.Visible := False;
+    btnGravarCadProduto.Visible := True;
 
     btnEditarCadPessoa.Visible := False;
     btnExcluirCadPessoa.Visible := False;
@@ -455,6 +940,11 @@ begin
   rbDesativadoProduto.IsChecked := False;
   cbTipCadastro.ItemIndex := -1;
   cbFornecedorProduto.ItemIndex := -1;
+  edtDataVenda.Date := Date;
+  cbClienteVenda.ItemIndex := -1;
+  cbProdutoVenda.ItemIndex := -1;
+  edtQuantidadeVenda.Text := '';
+  lblDetalheVenda.Text := '';
 end;
 
 procedure TFormPrincipal.ListBoxHeaderClick(Sender: TObject);
@@ -464,7 +954,17 @@ begin
  MultiView.HideMaster;
 end;
 
+procedure TFormPrincipal.ListBoxItem12Click(Sender: TObject);
+begin
+LimpaCampos;
+end;
+
 procedure TFormPrincipal.ListBoxItem1Click(Sender: TObject);
+begin
+LimpaCampos;
+end;
+
+procedure TFormPrincipal.ListBoxItem6Click(Sender: TObject);
 begin
 LimpaCampos;
 end;
@@ -522,6 +1022,28 @@ begin
 end;
 
 
+procedure TFormPrincipal.lvCadProdutoItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+    btnEditarCadProduto.Visible := True;
+    btnExcluirCadProduto.Visible := True;
+    btnGravarCadProduto.Visible := False;
+
+edtDescricaoProduto.Text := DM.qryProduto.FieldByName('DESCRICAO').AsString;
+edtPrecoProduto.Text := FormatFloat('R$0.00', DM.qryProduto.FieldByName('PRECO').AsFloat);
+edtEstoqueProduto.Text := DM.qryProduto.FieldByName('ESTOQUE').AsString;
+
+ if DM.qryProduto.FieldByName('STATUS').AsString = 'Ativo' then
+    rbAtivoProduto.IsChecked := True
+  else
+    rbDesativadoProduto.IsChecked := True;
+
+
+ cbFornecedorProduto.ItemIndex := cbFornecedorProduto.Items.IndexOf(dm.qryProduto.FieldByName('FORNECEDOR').AsString);
+
+
+end;
+
 procedure TFormPrincipal.SkLabel2Click(Sender: TObject);
 begin
 LimpaCampos;
@@ -567,7 +1089,7 @@ begin
 
      if dm.qryUsuario.IsEmpty then
      begin
-      ShowMessage('Usuário ou Senha Incorretos.');
+      ErrorAnimation.Visible := True;
       edtSenha.SetFocus;
 
      end
@@ -598,6 +1120,7 @@ begin
    except
    on E:Exception do
    begin
+    ErrorAnimation.Visible := True;
     ShowMessage('Ocorreu um Erro: ' + E.Message);
     Abort;
    end;
