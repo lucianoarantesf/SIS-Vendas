@@ -281,9 +281,17 @@ begin
     qryInsere.ParamByName('VALOR_TOTAL').AsFloat       :=  (vQuantidade * vValor);
 
     qryInsere.ParamByName('PRODUTO').AsString           :=  Params.ItemsString['PRODUTO'].AsString;
-
-
     qryInsere.Execute();
+
+
+    qryUpdate.CommandText.Clear;
+    qryUpdate.CommandText.Add(' UPDATE "PRODUTO" SET "ESTOQUE" = "ESTOQUE" - :QUANTIDADE '+
+                              ' WHERE cod_produto = :cod_produto');
+    qryUpdate.ParamByName('COD_PRODUTO').AsInteger      :=  StrToInt(Params.ItemsString['COD_PRODUTO'].AsString);
+    vQuantidade :=  StrToInt(Params.ItemsString['QUANTIDADE'].AsString);
+    qryUpdate.ParamByName('QUANTIDADE').AsInteger       :=  vQuantidade;
+    qryUpdate.Execute();
+
 
     Server_FDConnection.Commit;
 

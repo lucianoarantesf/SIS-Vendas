@@ -23,9 +23,8 @@ object ServerMethodDM: TServerMethodDM
       'Database=DBV'
       'User_Name=Admin'
       'Password=sa'
-      'Server=192.168.10.14'
+      'Server=192.168.100.111'
       'DriverID=PG')
-    Connected = True
     LoginPrompt = False
     Left = 47
     Top = 25

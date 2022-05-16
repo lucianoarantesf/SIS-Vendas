@@ -705,7 +705,7 @@ procedure TFormPrincipal.btnSalvarVendaClick(Sender: TObject);
 var
 vCodVenda : String;
 begin
-  if edtDataVenda.Date <= Now then
+  if edtDataVenda.Date < Date then
     begin
     ShowMessage('Informe uma Data Valida.');
     Abort;
@@ -739,13 +739,16 @@ begin
                                   dm.qryProdutoVenda.FieldByName('cod_produto').AsString,
                                   edtQuantidadeVenda.Text,
                                   dm.qryProdutoVenda.FieldByName('DESCRICAO').AsString,
-                                  FormatFloat('0.00',(DM.qryProdutoVenda.FieldByName('PRECO').AsFloat
-                                                      * StrToIntDef( edtQuantidadeVenda.Text, 0)))
+                                  FloatToStr((DM.qryProdutoVenda.FieldByName('PRECO').AsFloat
+                                                      * StrToIntDef(edtQuantidadeVenda.Text, 0)))
                                   )
      then
      begin
      DM.qryVendas.Close;
      DM.qryVendas.Open;
+
+     DM.qryProdutoVenda.Close;
+     DM.qryProdutoVenda.Open;
      SuccessAnimation.Visible := True;
 
      end;
@@ -777,6 +780,9 @@ begin
 
  dM.qryCliente.Close;
  DM.qryCliente.Open;
+
+DM.qryVendas.Close;
+DM.qryVendas.Open;
 
  ChangeTab.Tab := tabVenda;
  ChangeTab.ExecuteTarget(Self);
