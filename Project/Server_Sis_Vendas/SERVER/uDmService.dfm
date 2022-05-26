@@ -25,6 +25,7 @@ object ServerMethodDM: TServerMethodDM
       'Password=sa'
       'Server=192.168.100.111'
       'DriverID=PG')
+    Connected = True
     LoginPrompt = False
     Left = 47
     Top = 25

@@ -98,12 +98,12 @@ $(PostBuildEvent)]]></PostBuildEvent>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <VerInfo_Keys>CompanyName=Server Vendas;FileVersion=1.1.1.16;InternalName=Server Vendas;LegalCopyright=Server Vendas;LegalTrademarks=Server Vendas;OriginalFilename=Server Vendas;ProductVersion=1.0.0.0;Comments=Server Vendas;ProgramID=Server Vendas;FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Server Vendas;FileVersion=1.1.1.17;InternalName=Server Vendas;LegalCopyright=Server Vendas;LegalTrademarks=Server Vendas;OriginalFilename=Server Vendas;ProductVersion=1.0.0.0;Comments=Server Vendas;ProgramID=Server Vendas;FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
-        <VerInfo_Build>16</VerInfo_Build>
+        <VerInfo_Build>17</VerInfo_Build>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
         <VerInfo_Release>1</VerInfo_Release>
         <Icon_MainIcon>WindowsDWService_Icon.ico</Icon_MainIcon>

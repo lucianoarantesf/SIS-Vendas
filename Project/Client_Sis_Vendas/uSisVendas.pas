@@ -167,6 +167,7 @@ type
     lblDetalheVenda: TLabel;
     BindSourceDB7: TBindSourceDB;
     LinkListControlToField7: TLinkListControlToField;
+    Rectangle2: TRectangle;
     procedure cbTipCadastroClosePopup(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnLogOutClick(Sender: TObject);
@@ -180,8 +181,6 @@ type
       const AItem: TListViewItem);
     procedure btnSalvarCadPessoaClick(Sender: TObject);
     procedure btnEditarCadPessoaClick(Sender: TObject);
-    procedure btnLoginMouseEnter(Sender: TObject);
-    procedure btnLoginMouseLeave(Sender: TObject);
     procedure btnExcluirCadPessoaClick(Sender: TObject);
     procedure TabItemCadastroPessoaClick(Sender: TObject);
     procedure TabItemConsultaPessoaClick(Sender: TObject);
@@ -212,6 +211,15 @@ type
     procedure btnSalvarVendaClick(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
+    procedure Rectangle2Click(Sender: TObject);
+    procedure btnLoginMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure btnLoginMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure Rectangle2MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure Rectangle2MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
   private
     { Private declarations }
     procedure VerificaLogin;
@@ -231,33 +239,37 @@ implementation
 
 procedure TFormPrincipal.btnCadastroFornecedorClick(Sender: TObject);
 begin
-  DM.qryFornecedor.Close;
-  Dm.qryFornecedor.Open;
  ChangeTab.Tab := tabCadFornecedor;
  ChangeTab.ExecuteTarget(Self);
  MultiView.HideMaster;
-end;
+
+  DM.qryFornecedor.Close;
+  Dm.qryFornecedor.Open;
+
+ end;
 
 procedure TFormPrincipal.btnCadastroPessoaClick(Sender: TObject);
 begin
- DM.qryPessoa.Close;
- DM.qryPessoa.Open;
  ChangeTab.Tab := tabCadPessoa;
  ChangeTab.ExecuteTarget(Self);
  MultiView.HideMaster;
-end;
+
+ DM.qryPessoa.Close;
+ DM.qryPessoa.Open;
+ end;
 
 procedure TFormPrincipal.btnCadastroProdutoClick(Sender: TObject);
 begin
+ ChangeTab.Tab := tabCadProduto;
+ ChangeTab.ExecuteTarget(Self);
+ MultiView.HideMaster;
+
  dm.qryProduto_Fornecedor.Close;
  dm.qryProduto_Fornecedor.Open;
 
  dm.qryProduto.Close;
  dm.qryProduto.Open;
 
- ChangeTab.Tab := tabCadProduto;
- ChangeTab.ExecuteTarget(Self);
- MultiView.HideMaster;
 end;
 
 procedure TFormPrincipal.btnGravarCadProdutoClick(Sender: TObject);
@@ -563,20 +575,16 @@ if (EdtUsuario.Text.Equals('Admin') and EdtSenha.Text.Equals('Password')) then
   end;
 end;
 
-procedure TFormPrincipal.btnLoginMouseEnter(Sender: TObject);
+procedure TFormPrincipal.btnLoginMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Single);
 begin
-btnLogin.Margins.Top := 0;
-btnLogin.Margins.Left := 0;
-btnLogin.Margins.Right := 0;
-btnLogin.Margins.Bottom := 0;
+  btnLogin.Opacity := 0.5;
 end;
 
-procedure TFormPrincipal.btnLoginMouseLeave(Sender: TObject);
+procedure TFormPrincipal.btnLoginMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
 begin
-btnLogin.Margins.Top := 3;
-btnLogin.Margins.Left := 3;
-btnLogin.Margins.Right := 3;
-btnLogin.Margins.Bottom := 3;
+  btnLogin.Opacity := 1;
 end;
 
 procedure TFormPrincipal.btnSalvarCadFornecedorClick(Sender: TObject);
@@ -775,26 +783,26 @@ end;
 
 procedure TFormPrincipal.btnVendasClick(Sender: TObject);
 begin
- dm.qryProdutoVenda.Close;
- dm.qryProdutoVenda.Open;
-
- dM.qryCliente.Close;
- DM.qryCliente.Open;
-
-DM.qryVendas.Close;
-DM.qryVendas.Open;
-
  ChangeTab.Tab := tabVenda;
  ChangeTab.ExecuteTarget(Self);
  MultiView.HideMaster;
+
+ dm.qryProdutoVenda.Close;
+ dm.qryProdutoVenda.Open;
+
+  DM.qryCliente.Close;
+  DM.qryCliente.Open;
+
+  DM.qryVendas.Close;
+  DM.qryVendas.Open;
 end;
 
 procedure TFormPrincipal.cbTipCadastroClosePopup(Sender: TObject);
 begin
   if cbTipCadastro.ItemIndex = 0 then
-    ListBoxItemAcessos.Enabled := True
+    ListBoxItemAcessos.Visible := True
   else
-    ListBoxItemAcessos.Enabled := False;
+    ListBoxItemAcessos.Visible := False;
 end;
 
 procedure TFormPrincipal.EdtCepCadPessoaTyping(Sender: TObject);
@@ -1048,6 +1056,23 @@ edtEstoqueProduto.Text := DM.qryProduto.FieldByName('ESTOQUE').AsString;
  cbFornecedorProduto.ItemIndex := cbFornecedorProduto.Items.IndexOf(dm.qryProduto.FieldByName('FORNECEDOR').AsString);
 
 
+end;
+
+procedure TFormPrincipal.Rectangle2Click(Sender: TObject);
+begin
+ShowMessage('Foi encaminhado ao seu email o link para mudança de senha!');
+end;
+
+procedure TFormPrincipal.Rectangle2MouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Single);
+begin
+  Rectangle2.Opacity := 0.5;
+end;
+
+procedure TFormPrincipal.Rectangle2MouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Single);
+begin
+  Rectangle2.Opacity := 1;
 end;
 
 procedure TFormPrincipal.SkLabel2Click(Sender: TObject);
